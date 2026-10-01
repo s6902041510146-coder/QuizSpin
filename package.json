@@ -1,0 +1,14 @@
+{
+  "name": "byte-survivor",
+  "version": "1.0.0",
+  "description": "เกมสอนเรื่องหน่วยความจำคอมพิวเตอร์",
+  "main": "byte-survivor.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve . -p 3000",
+    "test": "echo \"No tests yet\""
+  },
+  "keywords": ["education", "game", "memory", "computer-science"],
+  "author": "",
+  "license": "MIT"
+}

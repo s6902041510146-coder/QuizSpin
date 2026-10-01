@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizSpin - ทดสอบ Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Prompt', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-container { background: white; border-radius: 20px; padding: 40px; max-width: 400px; width: 90%; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        .login-title { font-size: 28px; font-weight: bold; color: #333; margin-bottom: 10px; text-align: center; }
+        .login-subtitle { color: #666; text-align: center; margin-bottom: 30px; }
+        .login-input { width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 16px; margin-bottom: 15px; }
+        .login-input:focus { outline: none; border-color: #667eea; }
+        .login-btn { width: 100%; padding: 15px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 10px; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; }
+        .login-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4); }
+        .info-box { margin-top: 20px; padding: 15px; background: #f0f4ff; border-radius: 10px; font-size: 14px; }
+        .success { color: #4caf50; font-weight: bold; }
+        .error { color: #f44336; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1 class="login-title">🎡 QuizSpin</h1>
+        <p class="login-subtitle">หน้าทดสอบระบบ Login</p>
+        
+        <div class="mb-4">
+            <label class="block text-sm font-bold mb-2">เลือกบทบาท</label>
+            <select id="loginRole" class="login-input">
+                <option value="teacher">👩‍🏫 ครู</option>
+                <option value="student">👨‍🎓 นักเรียน</option>
+            </select>
+        </div>
+        
+        <div id="teacherLoginFields">
+            <input type="text" id="teacherUsername" class="login-input" placeholder="ชื่อผู้ใช้ (Wanwisa)">
+            <input type="password" id="teacherPassword" class="login-input" placeholder="รหัสผ่าน (w123)">
+        </div>
+        
+        <div id="studentLoginFields" style="display: none;">
+            <input type="text" id="studentNameLogin" class="login-input" placeholder="ชื่อของคุณ">
+            <input type="text" id="studentId" class="login-input" placeholder="รหัสนักศึกษา">
+        </div>
+        
+        <button class="login-btn" onclick="handleLogin()">เข้าสู่ระบบ</button>
+        
+        <div class="info-box">
+            <p class="font-bold mb-2">📋 ข้อมูลเข้าสู่ระบบ:</p>
+            <p>👩‍🏫 ครู: <code>Wanwisa / w123</code></p>
+            <p>👨‍🎓 นักเรียน: ชื่อตัวเอง + รหัสนักศึกษา</p>
+        </div>
+        
+        <div id="testResult" class="mt-4 p-3 rounded-lg text-center" style="display: none;"></div>
+    </div>
+
+    <script>
+        // ทดสอบ localStorage
+        console.log('=== เริ่มทดสอบระบบ Login ===');
+        
+        try {
+            localStorage.setItem('test', 'ok');
+            const testValue = localStorage.getItem('test');
+            console.log('localStorage ทำงาน:', testValue === 'ok' ? '✅ ปกติ' : '❌ ผิดปกติ');
+            localStorage.removeItem('test');
+        } catch (e) {
+            console.error('localStorage error:', e);
+        }
+
+        document.getElementById('loginRole').addEventListener('change', function() {
+            const role = this.value;
+            document.getElementById('teacherLoginFields').style.display = role === 'teacher' ? 'block' : 'none';
+            document.getElementById('studentLoginFields').style.display = role === 'student' ? 'block' : 'none';
+        });
+
+        function handleLogin() {
+            const resultDiv = document.getElementById('testResult');
+            resultDiv.style.display = 'block';
+            
+            try {
+                const role = document.getElementById('loginRole').value;
+                console.log('เลือกบทบาท:', role);
+
+                if (role === 'teacher') {
+                    const username = document.getElementById('teacherUsername').value.trim();
+                    const password = document.getElementById('teacherPassword').value;
+                    
+                    console.log('ชื่อผู้ใช้:', username);
+                    console.log('รหัสผ่าน:', password);
+
+                    if (username !== 'Wanwisa' || password !== 'w123') {
+                        resultDiv.innerHTML = '<span class="error">❌ ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง!</span>';
+                        resultDiv.className = 'mt-4 p-3 rounded-lg text-center bg-red-50';
+                        return;
+                    }
+                    
+                    resultDiv.innerHTML = '<span class="success">✅ เข้าสู่ระบบสำเร็จ! (ครู: Wanwisa)</span>';
+                    resultDiv.className = 'mt-4 p-3 rounded-lg text-center bg-green-50';
+                    console.log('✅ Login สำเร็จ');
+                    
+                } else {
+                    const name = document.getElementById('studentNameLogin').value.trim();
+                    const studentId = document.getElementById('studentId').value.trim();
+                    
+                    console.log('ชื่อ:', name);
+                    console.log('รหัสนักศึกษา:', studentId);
+
+                    if (!name) {
+                        resultDiv.innerHTML = '<span class="error">❌ กรุณาใส่ชื่อของคุณ</span>';
+                        resultDiv.className = 'mt-4 p-3 rounded-lg text-center bg-red-50';
+                        return;
+                    }
+                    if (!studentId) {
+                        resultDiv.innerHTML = '<span class="error">❌ กรุณาใส่รหัสนักศึกษา</span>';
+                        resultDiv.className = 'mt-4 p-3 rounded-lg text-center bg-red-50';
+                        return;
+                    }
+                    
+                    resultDiv.innerHTML = `<span class="success">✅ เข้าสู่ระบบสำเร็จ! (นักเรียน: ${name})</span>`;
+                    resultDiv.className = 'mt-4 p-3 rounded-lg text-center bg-green-50';
+                    console.log('✅ Login สำเร็จ');
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                resultDiv.innerHTML = `<span class="error">❌ เกิดข้อผิดพลาด: ${error.message}</span>`;
+                resultDiv.className = 'mt-4 p-3 rounded-lg text-center bg-red-50';
+            }
+        }
+    </script>
+</body>
+</html>

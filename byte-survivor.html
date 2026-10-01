@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Byte Survivor: The Great Memory Memory</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #1a1a2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+        #gameContainer {
+            position: relative;
+            width: 800px;
+            height: 600px;
+        }
+        #gameCanvas {
+            border: 3px solid #4fc3f7;
+            border-radius: 8px;
+            background: #0f0f23;
+        }
+        #ui {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            font-size: 14px;
+            pointer-events: none;
+        }
+        .ui-panel {
+            background: rgba(0,0,0,0.7);
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #4fc3f7;
+        }
+        #startScreen, #gameOverScreen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            border-radius: 8px;
+        }
+        #gameOverScreen {
+            display: none;
+        }
+        h1 {
+            font-size: 36px;
+            color: #ffd93d;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0 #000;
+        }
+        h2 {
+            font-size: 24px;
+            color: #4fc3f7;
+            margin-bottom: 20px;
+        }
+        .btn {
+            background: #4fc3f7;
+            color: #1a1a2e;
+            border: none;
+            padding: 12px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.2s;
+        }
+        .btn:hover {
+            background: #81d4fa;
+            transform: scale(1.05);
+        }
+        .btn-secondary {
+            background: #666;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background: #888;
+        }
+        #howToPlay {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.95);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            overflow-y: auto;
+        }
+        #howToPlay h3 {
+            color: #ffd93d;
+            margin: 15px 0 10px;
+        }
+        #howToPlay p, #howToPlay li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        #howToPlay ul {
+            margin-left: 20px;
+        }
+        .ram-color { color: #4fc3f7; }
+        .ssd-color { color: #2e7d32; }
+        .warning { color: #f44336; }
+        .success { color: #4caf50; }
+        #powerOffWarning {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(244, 67, 54, 0.9);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            display: none;
+            animation: blink 0.5s infinite;
+            z-index: 100;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        #memoryFullWarning {
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(244, 67, 54, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            display: none;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+        <div id="ui">
+            <div class="ui-panel">
+                <div>⏱️ เวลา: <span id="timeDisplay">5:00</span></div>
+                <div>🎯 คะแนน: <span id="scoreDisplay">0</span> / 500</div>
+            </div>
+            <div class="ui-panel">
+                <div>📦 แบก: <span id="carryDisplay">0</span></div>
+                <div class="ram-color">🔵 RAM: <span id="ramDisplay">0</span>/5</div>
+                <div class="ssd-color">🟢 SSD: <span id="ssdDisplay">0</span>/50</div>
+            </div>
+        </div>
+
+        <div id="powerOffWarning">⚡ ไฟดับ! ⚡</div>
+        <div id="memoryFullWarning">🚨 SYSTEM SLOWED DOWN 🚨</div>
+
+        <div id="startScreen">
+            <h1>🎮 Byte Survivor</h1>
+            <h2>The Great Memory Memory</h2>
+            <p style="margin-bottom: 20px; color: #aaa;">เกมสอนเรื่องหน่วยความจำคอมพิวเตอร์</p>
+            <button class="btn" onclick="startGame()">Start Game</button>
+            <button class="btn btn-secondary" onclick="showHowToPlay()">How to Play</button>
+        </div>
+
+        <div id="howToPlay">
+            <h2>📖 วิธีเล่น</h2>
+
+            <h3>🎯 เป้าหมาย</h3>
+            <p>บริหารข้อมูลให้ได้ 500 คะแนนภายใน 5 นาที</p>
+
+            <h3>🕹️ การควบคุม</h3>
+            <ul>
+                <li><strong>WASD / Arrow Keys</strong> — เคลื่อนที่</li>
+                <li><strong>E / Space</strong> — เก็บการ์ด / ฝากข้อมูล</li>
+            </ul>
+
+            <h3>📦 ประเภทข้อมูล</h3>
+            <ul>
+                <li>🎵 การ์ดเพลง</li>
+                <li>🖼️ การ์ดรูปภาพ</li>
+                <li>📄 การ์ดเอกสาร</li>
+                <li>🔑 การ์ดรหัสผ่านสำคัญ</li>
+            </ul>
+
+            <h3>🔵 ตู้ RAM (Random Access Memory)</h3>
+            <ul>
+                <li>เก็บได้ 5 ใบ</li>
+                <li>ได้คะแนน +10 ต่อการ์ด</li>
+                <li class="warning">⚠️ ไฟดับ = ข้อมูลหาย 100%</li>
+            </ul>
+
+            <h3>🟢 ตู้ SSD (Solid State Drive)</h3>
+            <ul>
+                <li>เก็บได้ 50 ใบ</li>
+                <li>ได้คะแนน +5 ต่อการ์ด</li>
+                <li class="success">✅ ไฟดับ = ข้อมูลยังอยู่</li>
+            </ul>
+
+            <h3>⚡ สถานการณ์วิกฤต</h3>
+            <ul>
+                <li><strong>ไฟดับ:</strong> ทุก 60 วินาที ข้อมูลใน RAM หาย</li>
+                <li><strong>RAM เต็ม:</strong> ระบบช้า เสียคะแนน -2/วิ</li>
+            </ul>
+
+            <h3>💡 เคล็ดลับ</h3>
+            <ul>
+                <li>เก็บข้อมูลสำคัญ (🔑) แล้วรีบย้ายไป SSD</li>
+                <li>อย่าปล่อยให้ RAM เต็ม</li>
+                <li>ย้ายข้อมูลจาก RAM ไป SSD ได้โบนัส +20</li>
+            </ul>
+
+            <button class="btn" onclick="hideHowToPlay()">กลับ</button>
+        </div>
+
+        <div id="gameOverScreen">
+            <h1 id="gameOverTitle">🎉 ชนะ!</h1>
+            <h2 id="gameOverMessage">ดีมาก Byte!</h2>
+            <p style="font-size: 24px; margin: 20px 0;">คะแนนรวม: <span id="finalScore">0</span></p>
+            <p id="cpuMasterMessage" style="color: #aaa; margin-bottom: 20px;"></p>
+            <button class="btn" onclick="restartGame()">เล่นอีกครั้ง</button>
+            <button class="btn btn-secondary" onclick="goToMenu()">เมนูหลัก</button>
+        </div>
+    </div>
+
+    <script>
+        // Game Constants
+        const CANVAS_WIDTH = 800;
+        const CANVAS_HEIGHT = 600;
+        const PLAYER_SPEED = 5;
+        const PLAYER_SLOW_SPEED = 2.5;
+        const RAM_CAPACITY = 5;
+        const SSD_CAPACITY = 50;
+        const GAME_DURATION = 300; // 5 minutes
+        const TARGET_SCORE = 500;
+        const POWER_OFF_INTERVAL = 60;
+        const POWER_OFF_DURATION = 5;
+
+        // Game State
+        let canvas, ctx;
+        let gameRunning = false;
+        let score = 0;
+        let timeLeft = GAME_DURATION;
+        let powerOffTimer = POWER_OFF_INTERVAL;
+        let powerOffActive = false;
+        let powerOffTimeLeft = 0;
+        let memoryFullActive = false;
+        let lastTime = 0;
+        let spawnTimer = 0;
+
+        // Player
+        let player = {
+            x: CANVAS_WIDTH / 2,
+            y: CANVAS_HEIGHT / 2,
+            width: 30,
+            height: 30,
+            carrying: 0,
+            maxCarry: 3
+        };
+
+        // Memory Boxes
+        let ramBox = {
+            x: 100,
+            y: 100,
+            width: 80,
+            height: 80,
+            capacity: RAM_CAPACITY,
+            currentLoad: 0,
+            scorePerCard: 10,
+            color: '#4fc3f7',
+            lightColor: '#4caf50'
+        };
+
+        let ssdBox = {
+            x: CANVAS_WIDTH - 180,
+            y: 100,
+            width: 100,
+            height: 100,
+            capacity: SSD_CAPACITY,
+            currentLoad: 0,
+            scorePerCard: 5,
+            color: '#2e7d32',
+            lightColor: '#f44336'
+        };
+
+        // Data Cards
+        let dataCards = [];
+        const CARD_TYPES = [
+            { type: 'music', emoji: '🎵', color: '#e91e63', points: 10 },
+            { type: 'image', emoji: '🖼️', color: '#9c27b0', points: 10 },
+            { type: 'document', emoji: '📄', color: '#2196f3', points: 10 },
+            { type: 'password', emoji: '🔑', color: '#ff9800', points: 15 }
+        ];
+
+        // Input
+        let keys = {};
+
+        // Initialize
+        function init() {
+            canvas = document.getElementById('gameCanvas');
+            ctx = canvas.getContext('2d');
+
+            // Keyboard events
+            document.addEventListener('keydown', (e) => {
+                keys[e.key.toLowerCase()] = true;
+                if (e.key.toLowerCase() === 'e' || e.key === ' ') {
+                    e.preventDefault();
+                    handleInteraction();
+                }
+            });
+            document.addEventListener('keyup', (e) => {
+                keys[e.key.toLowerCase()] = false;
+            });
+
+            // Start game loop
+            requestAnimationFrame(gameLoop);
+        }
+
+        function startGame() {
+            document.getElementById('startScreen').style.display = 'none';
+            document.getElementById('gameOverScreen').style.display = 'none';
+            resetGame();
+            gameRunning = true;
+        }
+
+        function resetGame() {
+            score = 0;
+            timeLeft = GAME_DURATION;
+            powerOffTimer = POWER_OFF_INTERVAL;
+            powerOffActive = false;
+            memoryFullActive = false;
+            player.x = CANVAS_WIDTH / 2;
+            player.y = CANVAS_HEIGHT / 2;
+            player.carrying = 0;
+            ramBox.currentLoad = 0;
+            ssdBox.currentLoad = 0;
+            dataCards = [];
+            spawnTimer = 0;
+            updateUI();
+        }
+
+        function restartGame() {
+            startGame();
+        }
+
+        function goToMenu() {
+            document.getElementById('gameOverScreen').style.display = 'none';
+            document.getElementById('startScreen').style.display = 'flex';
+            gameRunning = false;
+        }
+
+        function showHowToPlay() {
+            document.getElementById('howToPlay').style.display = 'block';
+        }
+
+        function hideHowToPlay() {
+            document.getElementById('howToPlay').style.display = 'none';
+        }
+
+        function gameLoop(timestamp) {
+            if (!lastTime) lastTime = timestamp;
+            const deltaTime = (timestamp - lastTime) / 1000;
+            lastTime = timestamp;
+
+            if (gameRunning) {
+                update(deltaTime);
+            }
+            render();
+            requestAnimationFrame(gameLoop);
+        }
+
+        function update(dt) {
+            // Update timer
+            timeLeft -= dt;
+            if (timeLeft <= 0) {
+                endGame();
+                return;
+            }
+
+            // Update power off timer
+            if (!powerOffActive) {
+                powerOffTimer -= dt;
+                if (powerOffTimer <= 0) {
+                    activatePowerOff();
+                }
+            } else {
+                powerOffTimeLeft -= dt;
+                if (powerOffTimeLeft <= 0) {
+                    deactivatePowerOff();
+                }
+            }
+
+            // Update memory full
+            if (ramBox.currentLoad >= ramBox.capacity && !memoryFullActive) {
+                memoryFullActive = true;
+                document.getElementById('memoryFullWarning').style.display = 'block';
+                score -= 2;
+            } else if (ramBox.currentLoad < ramBox.capacity && memoryFullActive) {
+                memoryFullActive = false;
+                document.getElementById('memoryFullWarning').style.display = 'none';
+            }
+
+            // Spawn data cards
+            spawnTimer += dt;
+            if (spawnTimer >= 2) {
+                spawnDataCard();
+                spawnTimer = 0;
+            }
+
+            // Update player movement
+            updatePlayer();
+
+            // Update data cards
+            updateDataCards();
+
+            // Update UI
+            updateUI();
+        }
+
+        function updatePlayer() {
+            let speed = memoryFullActive ? PLAYER_SLOW_SPEED : PLAYER_SPEED;
+            if (player.carrying > 0) speed *= 0.7;
+
+            let dx = 0, dy = 0;
+            if (keys['w'] || keys['arrowup']) dy -= speed;
+            if (keys['s'] || keys['arrowdown']) dy += speed;
+            if (keys['a'] || keys['arrowleft']) dx -= speed;
+            if (keys['d'] || keys['arrowright']) dx += speed;
+
+            player.x += dx;
+            player.y += dy;
+
+            // Boundary check
+            player.x = Math.max(player.width / 2, Math.min(CANVAS_WIDTH - player.width / 2, player.x));
+            player.y = Math.max(player.height / 2, Math.min(CANVAS_HEIGHT - player.height / 2, player.y));
+        }
+
+        function updateDataCards() {
+            for (let i = dataCards.length - 1; i >= 0; i--) {
+                let card = dataCards[i];
+                card.x += card.speed;
+
+                // Remove if off screen
+                if (card.x > CANVAS_WIDTH + 50) {
+                    dataCards.splice(i, 1);
+                }
+            }
+        }
+
+        function spawnDataCard() {
+            if (dataCards.length >= 10) return;
+
+            let type = CARD_TYPES[Math.floor(Math.random() * CARD_TYPES.length)];
+            dataCards.push({
+                x: -30,
+                y: 150 + Math.random() * 300,
+                width: 25,
+                height: 25,
+                speed: 1 + Math.random(),
+                ...type
+            });
+        }
+
+        function handleInteraction() {
+            // Check if near a data card
+            for (let i = dataCards.length - 1; i >= 0; i--) {
+                let card = dataCards[i];
+                if (distance(player, card) < 40 && player.carrying < player.maxCarry) {
+                    player.carrying++;
+                    dataCards.splice(i, 1);
+                    return;
+                }
+            }
+
+            // Check if near RAM box
+            if (distance(player, ramBox) < 60 && player.carrying > 0) {
+                if (ramBox.currentLoad < ramBox.capacity) {
+                    ramBox.currentLoad++;
+                    player.carrying--;
+                    score += ramBox.scorePerCard;
+                }
+                return;
+            }
+
+            // Check if near SSD box
+            if (distance(player, ssdBox) < 60 && player.carrying > 0) {
+                if (ssdBox.currentLoad < ssdBox.capacity) {
+                    ssdBox.currentLoad++;
+                    player.carrying--;
+                    score += ssdBox.scorePerCard;
+                }
+                return;
+            }
+
+            // Check if near RAM box to transfer to SSD
+            if (distance(player, ramBox) < 60 && ramBox.currentLoad > 0 && ssdBox.currentLoad < ssdBox.capacity) {
+                ramBox.currentLoad--;
+                ssdBox.currentLoad++;
+                score += 20; // Bonus for transferring
+                return;
+            }
+        }
+
+        function activatePowerOff() {
+            powerOffActive = true;
+            powerOffTimeLeft = POWER_OFF_DURATION;
+            document.getElementById('powerOffWarning').style.display = 'block';
+
+            // RAM loses all data
+            if (ramBox.currentLoad > 0) {
+                score -= 10 * ramBox.currentLoad;
+                ramBox.currentLoad = 0;
+            }
+        }
+
+        function deactivatePowerOff() {
+            powerOffActive = false;
+            powerOffTimer = POWER_OFF_INTERVAL;
+            document.getElementById('powerOffWarning').style.display = 'none';
+        }
+
+        function distance(a, b) {
+            let ax = a.x + (a.width || 0) / 2;
+            let ay = a.y + (a.height || 0) / 2;
+            let bx = b.x + (b.width || 0) / 2;
+            let by = b.y + (b.height || 0) / 2;
+            return Math.sqrt((ax - bx) ** 2 + (ay - by) ** 2);
+        }
+
+        function updateUI() {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = Math.floor(timeLeft % 60);
+            document.getElementById('timeDisplay').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            document.getElementById('scoreDisplay').textContent = Math.max(0, score);
+            document.getElementById('carryDisplay').textContent = player.carrying;
+            document.getElementById('ramDisplay').textContent = ramBox.currentLoad;
+            document.getElementById('ssdDisplay').textContent = ssdBox.currentLoad;
+        }
+
+        function endGame() {
+            gameRunning = false;
+            let won = score >= TARGET_SCORE;
+
+            document.getElementById('gameOverTitle').textContent = won ? '🎉 ชนะ!' : '💀 แพ้!';
+            document.getElementById('gameOverMessage').textContent = won ? 'ดีมาก Byte!' : 'ลองอีกครั้ง!';
+            document.getElementById('finalScore').textContent = Math.max(0, score);
+
+            let cpuMsg = '';
+            if (won) {
+                cpuMsg = '"ดีมาก Byte! การจัดการความจำยอดเยี่ยม คอมทำงานลื่นปรี๊ด!"';
+            } else {
+                cpuMsg = '"คอมค้าง! ข้อมูลหาย! Byte นายโดนไล่ออก!"';
+            }
+            document.getElementById('cpuMasterMessage').textContent = cpuMsg;
+
+            document.getElementById('gameOverScreen').style.display = 'flex';
+        }
+
+        function render() {
+            // Clear canvas
+            ctx.fillStyle = '#0f0f23';
+            ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+            // Draw grid
+            ctx.strokeStyle = '#1a1a3e';
+            ctx.lineWidth = 1;
+            for (let x = 0; x < CANVAS_WIDTH; x += 40) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, CANVAS_HEIGHT);
+                ctx.stroke();
+            }
+            for (let y = 0; y < CANVAS_HEIGHT; y += 40) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(CANVAS_WIDTH, y);
+                ctx.stroke();
+            }
+
+            // Draw conveyor belt
+            ctx.fillStyle = '#333';
+            ctx.fillRect(0, 140, CANVAS_WIDTH, 220);
+            ctx.fillStyle = '#444';
+            for (let x = 0; x < CANVAS_WIDTH; x += 30) {
+                ctx.fillRect(x, 140, 15, 220);
+            }
+
+            // Draw data cards
+            dataCards.forEach(card => {
+                ctx.fillStyle = card.color;
+                ctx.fillRect(card.x, card.y, card.width, card.height);
+                ctx.font = '16px Arial';
+                ctx.fillText(card.emoji, card.x + 2, card.y + 18);
+            });
+
+            // Draw RAM Box
+            ctx.fillStyle = ramBox.color;
+            ctx.fillRect(ramBox.x, ramBox.y, ramBox.width, ramBox.height);
+            ctx.fillStyle = powerOffActive ? '#333' : ramBox.lightColor;
+            ctx.beginPath();
+            ctx.arc(ramBox.x + ramBox.width / 2, ramBox.y + 15, 8, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#fff';
+            ctx.font = 'bold 12px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('RAM', ramBox.x + ramBox.width / 2, ramBox.y + 45);
+            ctx.fillText(`${ramBox.currentLoad}/${ramBox.capacity}`, ramBox.x + ramBox.width / 2, ramBox.y + 65);
+            ctx.textAlign = 'left';
+
+            // Draw SSD Box
+            ctx.fillStyle = ssdBox.color;
+            ctx.fillRect(ssdBox.x, ssdBox.y, ssdBox.width, ssdBox.height);
+            ctx.fillStyle = powerOffActive ? '#333' : ssdBox.lightColor;
+            ctx.beginPath();
+            ctx.arc(ssdBox.x + ssdBox.width / 2, ssdBox.y + 15, 10, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#fff';
+            ctx.font = 'bold 14px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('SSD', ssdBox.x + ssdBox.width / 2, ssdBox.y + 50);
+            ctx.fillText(`${ssdBox.currentLoad}/${ssdBox.capacity}`, ssdBox.x + ssdBox.width / 2, ssdBox.y + 75);
+            ctx.textAlign = 'left';
+
+            // Draw player (Byte)
+            ctx.fillStyle = '#ffd93d';
+            ctx.fillRect(player.x - player.width / 2, player.y - player.height / 2, player.width, player.height);
+            ctx.fillStyle = '#333';
+            ctx.fillRect(player.x - 8, player.y - 5, 6, 6);
+            ctx.fillRect(player.x + 2, player.y - 5, 6, 6);
+            ctx.fillStyle = '#fff';
+            ctx.font = '10px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('Byte', player.x, player.y + 20);
+            ctx.textAlign = 'left';
+
+            // Draw carrying indicator
+            if (player.carrying > 0) {
+                ctx.fillStyle = '#ffd93d';
+                ctx.font = '12px Arial';
+                ctx.fillText(`📦 x${player.carrying}`, player.x - 15, player.y - 25);
+            }
+
+            // Power off effect
+            if (powerOffActive) {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+                ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+            }
+        }
+
+        // Start
+        init();
+    </script>
+</body>
+</html>

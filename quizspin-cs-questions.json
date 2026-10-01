@@ -1,0 +1,1572 @@
+{
+  "course": "วิชาโครงงสร้างระบบคอมพิวเตอร์",
+  "chapters": [
+    {
+      "chapter": 1,
+      "title": "บทที่ 1: โครงงสร้างระบบคอมพิวเตอร์",
+      "questions": [
+        {
+          "id": "ch1_001",
+          "category": "easy",
+          "question": "คอมพิวเตอร์ประกอบด้วยองค์ประกอบหลักกี่ส่วน?",
+          "options": ["3 ส่วน", "4 ส่วน", "5 ส่วน", "6 ส่วน"],
+          "answer": 2
+        },
+        {
+          "id": "ch1_002",
+          "category": "easy",
+          "question": "ข้อใดเป็นองค์ประกอบหลักของคอมพิวเตอร์?",
+          "options": ["CPU, Memory, I/O", "CPU, Monitor, Keyboard", "RAM, HDD, VGA", "Mouse, Printer, Speaker"],
+          "answer": 1
+        },
+        {
+          "id": "ch1_003",
+          "category": "medium",
+          "question": "สัญญาณนาฬิกา (Clock) ของคอมพิวเตอร์มีหน้าที่หลักอะไร?",
+          "options": ["แสดงเวลาในระบบ", "ซิงโครไนซ์การทำงานขององค์ประกอบต่างๆ", "ควบคุมความเร็วแฟนระบายความร้อน", "นับจำนวนคำสั่งที่ประมวลผล"],
+          "answer": 2
+        },
+        {
+          "id": "ch1_004",
+          "category": "medium",
+          "question": "หน่วยวัดความเร็วของคอมพิวเตอร์ 1 GHz เท่ากับกี่ Hz?",
+          "options": ["1,000 Hz", "1,000,000 Hz", "1,000,000,000 Hz", "1,000,000,000,000 Hz"],
+          "answer": 3
+        },
+        {
+          "id": "ch1_005",
+          "category": "medium",
+          "question": "คอมพิวเตอร์ยุคที่ 1 ใช้เทคโนโลยีหลักใด?",
+          "options": ["ทรานซิสเตอร์", "หลอดสุญญากาศ", "วงจรรวม (IC)", "ไมโครโปรเซสเซอร์"],
+          "answer": 2
+        },
+        {
+          "id": "ch1_006",
+          "category": "medium",
+          "question": "คอมพิวเตอร์ยุคที่ 3 ใช้เทคโนโลยีหลักใด?",
+          "options": ["หลอดสุญญากาศ", "ทรานซิสเตอร์", "วงจรรวม (IC)", "ไมโครโปรเซสเซอร์"],
+          "answer": 3
+        },
+        {
+          "id": "ch1_007",
+          "category": "hard",
+          "question": "CPU ย่อมาจากข้อใด?",
+          "options": ["Central Processing Unit", "Computer Personal Unit", "Central Program Utility", "Control Processing Unit"],
+          "answer": 1
+        },
+        {
+          "id": "ch1_008",
+          "category": "hard",
+          "question": "วงรอบคำสั่ง (Instruction Cycle) ประกอบด้วย 2 ขั้นตอนหลักคือข้อใด?",
+          "options": ["Fetch และ Execute", "Decode และ Store", "Read และ Write", "Input และ Output"],
+          "answer": 1
+        },
+        {
+          "id": "ch1_009",
+          "category": "hard",
+          "question": "รูปแบบคำสั่ง (Instruction Format) มีองค์ประกอบหลักอะไรบ้าง?",
+          "options": ["OpCode และ Operand", "Address และ Data", "Register และ Flag", "Header และ Footer"],
+          "answer": 1
+        },
+        {
+          "id": "ch1_010",
+          "category": "hard",
+          "question": "ระบบบัส (Bus) ของคอมพิวเตอร์มีกี่ประเภทหลัก?",
+          "options": ["2 ประเภท", "3 ประเภท", "4 ประเภท", "5 ประเภท"],
+          "answer": 2
+        },
+        {
+          "id": "ch1_011",
+          "category": "hard",
+          "question": "ข้อใดคือประเภทของบัส (Bus) ในระบบคอมพิวเตอร์?",
+          "options": ["Address Bus, Data Bus, Control Bus", "Input Bus, Output Bus, System Bus", "Main Bus, Sub Bus, Mini Bus", "Serial Bus, Parallel Bus, USB Bus"],
+          "answer": 1
+        },
+        {
+          "id": "ch1_012",
+          "category": "hard",
+          "question": "หน่วยความจำ (Memory Unit) มีหน้าที่หลักอะไร?",
+          "options": ["ประมวลผลข้อมูล", "จัดเก็บข้อมูลและคำสั่ง", "ควบคุมอุปกรณ์", "แสดงผลลัพธ์"],
+          "answer": 2
+        },
+        {
+          "id": "ch1_013",
+          "category": "hard",
+          "question": "ลำดับชั้นของหน่วยความจำ (Memory Hierarchy) จากเร็วไปช้าคือข้อใด?",
+          "options": ["Cache → RAM → HDD", "RAM → Cache → HDD", "HDD → RAM → Cache", "Cache → HDD → RAM"],
+          "answer": 1
+        },
+        {
+          "id": "ch1_014",
+          "category": "hard",
+          "question": "หน่วยความจำแคช (Cache Memory) ทำงานตามหลักการใด?",
+          "options": ["Locality of Reference", "Random Access", "Sequential Access", "Direct Mapping"],
+          "answer": 1
+        },
+        {
+          "id": "ch1_015",
+          "category": "hard",
+          "question": "Hit Ratio ในแคชหมายถึงข้อใด?",
+          "options": ["อัตราส่วนการพบข้อมูลในแคช", "อัตราส่วนการไม่พบข้อมูลในแคช", "ความเร็วในการเข้าถึงแคช", "ขนาดของแคช"],
+          "answer": 1
+        },
+        {
+          "id": "ch1_016",
+          "category": "hard",
+          "question": "Cache Mapping แบบ Direct Mapping มีลักษณะอย่างไร?",
+          "options": ["ทุกบล็อกสามารถวางได้ทุกตำแหน่ง", "บล็อกวางได้เฉพาะตำแหน่งที่กำหนด", "บล็อกวางเป็นกลุ่ม", "บล็อกวางแบบสุ่ม"],
+          "answer": 2
+        },
+        {
+          "id": "ch1_017",
+          "category": "hard",
+          "question": "นโยบายการเขียนข้อมูลแบบ Write Through มีลักษณะอย่างไร?",
+          "options": ["เขียนไปแคชและหน่วยความจำหลังพร้อมกัน", "เขียนเฉพาะแคชก่อน", "เขียนเฉพาะหน่วยความจำหลัง", "เขียนแบบสุ่ม"],
+          "answer": 1
+        },
+        {
+          "id": "ch1_018",
+          "category": "hard",
+          "question": "นโยบายการเขียนข้อมูลแบบ Write Back มีลักษณะอย่างไร?",
+          "options": ["เขียนไปแคชและหน่วยความจำหลังพร้อมกัน", "เขียนเฉพาะแคชก่อน แล้วค่อยเขียนหน่วยความจำหลังทีหลัง", "เขียนเฉพาะหน่วยความจำหลัง", "เขียนแบบสุ่ม"],
+          "answer": 2
+        },
+        {
+          "id": "ch1_019",
+          "category": "hard",
+          "question": "พอร์ต (Port) ในคอมพิวเตอร์มีหน้าที่อะไร?",
+          "options": ["เชื่อมต่ออุปกรณ์ภายนอก", "เพิ่มความเร็วประมวลผล", "เก็บข้อมูลชั่วคราว", "ควบคุมแฟนระบายความร้อน"],
+          "answer": 1
+        },
+        {
+          "id": "ch1_020",
+          "category": "hard",
+          "question": "I/O Unit มีหน้าที่หลักอะไร?",
+          "options": ["ประมวลผลข้อมูล", "รับและส่งข้อมูลระหว่างคอมพิวเตอร์กับอุปกรณ์ภายนอก", "จัดเก็บข้อมูลถาวร", "แสดงผลลัพธ์"],
+          "answer": 2
+        },
+        {
+          "id": "ch1_021",
+          "category": "bonus",
+          "question": "คอมพิวเตอร์ยุคที่ 5 เน้นเทคโนโลยีหลักใด?",
+          "options": ["หลอดสุญญากาศ", "ทรานซิสเตอร์", "วงจรรวม (IC)", "ปัญญาประดิษฐ์และการประมวลผลแบบขนาน"],
+          "answer": 4
+        },
+        {
+          "id": "ch1_022",
+          "category": "bonus",
+          "question": "คอมพิวเตอร์ยุคที่ 2 ใช้เทคโนโลยีหลักใด?",
+          "options": ["หลอดสุญญากาศ", "ทรานซิสเตอร์", "วงจรรวม (IC)", "ไมโครโปรเซสเซอร์"],
+          "answer": 2
+        },
+        {
+          "id": "ch1_023",
+          "category": "bonus",
+          "question": "คอมพิวเตอร์ยุคที่ 4 ใช้เทคโนโลยีหลักใด?",
+          "options": ["หลอดสุญญากาศ", "ทรานซิสเตอร์", "วงจรรวม (IC)", "ไมโครโปรเซสเซอร์"],
+          "answer": 4
+        },
+        {
+          "id": "ch1_024",
+          "category": "bonus",
+          "question": "การคำนวณ Speed Up ของ CPU ใช้เปรียบเทียบอะไร?",
+          "options": ["เวลาก่อนและหลังเพิ่มความเร็ว", "ราคาก่อนและหลังอัปเกรด", "ขนาดก่อนและหลังอัปเกรด", "น้ำหนักก่อนและหลังอัปเกรด"],
+          "answer": 1
+        },
+        {
+          "id": "ch1_025",
+          "category": "bonus",
+          "question": "สัญญาณนาฬิกที่ส่งไปยังอุปกรณ์แต่ละส่วนมีความเร็วไม่เท่ากันเพราะเหตุใด?",
+          "options": ["แต่ละอุปกรณ์ทำงานที่ความถี่ต่างกัน", "สายบัสมีความยาวต่างกัน", "หน่วยความจำมีขนาดต่างกัน", "CPU ปรับความเร็วได้"],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "chapter": 2,
+      "title": "บทที่ 2: ข้อมูลและระบบตัวเลข",
+      "questions": [
+        {
+          "id": "ch2_001",
+          "category": "easy",
+          "question": "ข้อมูลในคอมพิวเตอร์แทนด้วยสัญญาณดิจิทัลกี่ระดับ?",
+          "options": ["1 ระดับ", "2 ระดับ", "3 ระดับ", "4 ระดับ"],
+          "answer": 2
+        },
+        {
+          "id": "ch2_002",
+          "category": "easy",
+          "question": "สัญญาณดิจิทัลในคอมพิวเตอร์ใช้ค่าใดบ้าง?",
+          "options": ["0 และ 1", "1 และ 2", "0 และ 2", "1 และ 3"],
+          "answer": 1
+        },
+        {
+          "id": "ch2_003",
+          "category": "easy",
+          "question": "เลขฐาน 2 (Binary) ใช้ตัวเลขใดบ้าง?",
+          "options": ["0-7", "0-9", "0 และ 1", "0-9 และ A-F"],
+          "answer": 3
+        },
+        {
+          "id": "ch2_004",
+          "category": "easy",
+          "question": "เลขฐาน 16 (Hexadecimal) ใช้ตัวเลขและตัวอักษรใดบ้าง?",
+          "options": ["0-9", "0-9 และ A-F", "0-7", "0-9 และ A-Z"],
+          "answer": 2
+        },
+        {
+          "id": "ch2_005",
+          "category": "easy",
+          "question": "1 ไบต์ (Byte) เท่ากัดกี่บิต (Bit)?",
+          "options": ["4 บิต", "8 บิต", "16 บิต", "32 บิต"],
+          "answer": 2
+        },
+        {
+          "id": "ch2_006",
+          "category": "medium",
+          "question": "เลขฐาน 10 คือ 15 แปลงเป็นเลขฐาน 2 ได้ข้อใด?",
+          "options": ["1110", "1111", "1010", "1100"],
+          "answer": 2
+        },
+        {
+          "id": "ch2_007",
+          "category": "medium",
+          "question": "เลขฐาน 2 คือ 1010 แปลงเป็นเลขฐาน 10 ได้ข้อใด?",
+          "options": ["8", "10", "12", "14"],
+          "answer": 2
+        },
+        {
+          "id": "ch2_008",
+          "category": "medium",
+          "question": "เลขฐาน 10 คือ 255 แปลงเป็นเลขฐาน 16 ได้ข้อใด?",
+          "options": ["F0", "FF", "0F", "1F"],
+          "answer": 2
+        },
+        {
+          "id": "ch2_009",
+          "category": "medium",
+          "question": "เลขฐาน 16 คือ A แปลงเป็นเลขฐาน 10 ได้ข้อใด?",
+          "options": ["8", "9", "10", "11"],
+          "answer": 3
+        },
+        {
+          "id": "ch2_010",
+          "category": "medium",
+          "question": "เลขฐาน 8 (Octal) ใช้ตัวเลขใดบ้าง?",
+          "options": ["0-7", "0-9", "0-9 และ A-F", "0 และ 1"],
+          "answer": 1
+        },
+        {
+          "id": "ch2_011",
+          "category": "medium",
+          "question": "เลขฐาน 10 คือ 8 แปลงเป็นเลขฐาน 8 ได้ข้อใด?",
+          "options": ["8", "10", "11", "12"],
+          "answer": 2
+        },
+        {
+          "id": "ch2_012",
+          "category": "medium",
+          "question": "เลขฐาน 2 คือ 1100 แปลงเป็นเลขฐาน 8 ได้ข้อใด?",
+          "options": ["10", "12", "14", "16"],
+          "answer": 2
+        },
+        {
+          "id": "ch2_013",
+          "category": "medium",
+          "question": "เลขฐาน 2 คือ 1111 แปลงเป็นเลขฐาน 16 ได้ข้อใด?",
+          "options": ["E", "F", "10", "11"],
+          "answer": 2
+        },
+        {
+          "id": "ch2_014",
+          "category": "medium",
+          "question": "เลขฐาน 16 คือ F แปลงเป็นเลขฐาน 2 ได้ข้อใด?",
+          "options": ["1110", "1111", "1010", "1100"],
+          "answer": 2
+        },
+        {
+          "id": "ch2_015",
+          "category": "hard",
+          "question": "การเข้ารหัส (Encoding) ในคอมพิวเตอร์หมายถึงข้อใด?",
+          "options": ["แปลงข้อมูลเป็นสัญญาณดิจิทัล", "ลบข้อมูล", "คัดลอกข้อมูล", "ย้ายข้อมูล"],
+          "answer": 1
+        },
+        {
+          "id": "ch2_016",
+          "category": "hard",
+          "question": "การถอดรหัส (Decoding) ในคอมพิวเตอร์หมายถึงข้อใด?",
+          "options": ["แปลงสัญญาณดิจิทัลกลับเป็นข้อมูล", "เข้ารหัสข้อมูล", "ลบข้อมูล", "คัดลอกข้อมูล"],
+          "answer": 1
+        },
+        {
+          "id": "ch2_017",
+          "category": "hard",
+          "question": "การบวกเลขฐาน 2: 101 + 011 ได้ผลลัพธ์ข้อใด?",
+          "options": ["1000", "1001", "1010", "1011"],
+          "answer": 1
+        },
+        {
+          "id": "ch2_018",
+          "category": "hard",
+          "question": "2's Complement ของเลขฐาน 2 คือ 0101 คือข้อใด?",
+          "options": ["1010", "1011", "1100", "1101"],
+          "answer": 2
+        },
+        {
+          "id": "ch2_019",
+          "category": "hard",
+          "question": "1's Complement ของเลขฐาน 2 คือ 0101 คือข้อใด?",
+          "options": ["1010", "1011", "1100", "1101"],
+          "answer": 1
+        },
+        {
+          "id": "ch2_020",
+          "category": "hard",
+          "question": "รหัส ASCII ใช้กี่บิตในการแทนข้อมูล 1 ตัวอักษร?",
+          "options": ["4 บิต", "7 บิต", "8 บิต", "16 บิต"],
+          "answer": 2
+        },
+        {
+          "id": "ch2_021",
+          "category": "hard",
+          "question": "รหัส ASCII ของตัวอักษร 'A' คือข้อใด?",
+          "options": ["65", "66", "97", "48"],
+          "answer": 1
+        },
+        {
+          "id": "ch2_022",
+          "category": "hard",
+          "question": "การลบเลขฐาน 2 ด้วย 2's Complement: 1000 - 0011 ได้ผลลัพธ์ข้อใด?",
+          "options": ["0101", "0110", "0111", "1001"],
+          "answer": 1
+        },
+        {
+          "id": "ch2_023",
+          "category": "bonus",
+          "question": "เลขฐาน 10 คือ 100 แปลงเป็นเลขฐาน 2 ได้ข้อใด?",
+          "options": ["1100100", "1100101", "1100110", "1100111"],
+          "answer": 1
+        },
+        {
+          "id": "ch2_024",
+          "category": "bonus",
+          "question": "เลขฐาน 2 คือ 11110000 แปลงเป็นเลขฐาน 16 ได้ข้อใด?",
+          "options": ["E0", "F0", "0F", "1F"],
+          "answer": 2
+        },
+        {
+          "id": "ch2_025",
+          "category": "bonus",
+          "question": "เลขฐาน 16 คือ FF แปลงเป็นเลขฐาน 10 ได้ข้อใด?",
+          "options": ["254", "255", "256", "257"],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "chapter": 3,
+      "title": "บทที่ 3: ชุดคำสั่งและวัฏจักรคำสั่งของ CPU",
+      "questions": [
+        {
+          "id": "ch3_001",
+          "category": "easy",
+          "question": "ชุดคำสั่ง (Instruction Set) หมายถึงข้อใด?",
+          "options": ["ชุดคำสั่งที่ CPU สามารถปฏิบัติการได้", "ชุดโปรแกรมติดตั้ง", "ชุดไฟล์ระบบ", "ชุดข้อมูลนำเข้า"],
+          "answer": 1
+        },
+        {
+          "id": "ch3_002",
+          "category": "easy",
+          "question": "OpCode ในคำสั่งหมายถึงข้อใด?",
+          "options": ["รหัสปฏิบัติการ", "ตัวถูกดำเนินการ", "ที่อยู่ข้อมูล", "คำสั่งถัดไป"],
+          "answer": 1
+        },
+        {
+          "id": "ch3_003",
+          "category": "easy",
+          "question": "Operand ในคำสั่งหมายถึงข้อใด?",
+          "options": ["รหัสปฏิบัติการ", "ตัวถูกดำเนินการ", "ที่อยู่ข้อมูล", "คำสั่งถัดไป"],
+          "answer": 2
+        },
+        {
+          "id": "ch3_004",
+          "category": "medium",
+          "question": "วัฏจักรคำสั่ง (Instruction Cycle) มีกี่ขั้นตอนหลัก?",
+          "options": ["2 ขั้นตอน", "3 ขั้นตอน", "4 ขั้นตอน", "5 ขั้นตอน"],
+          "answer": 2
+        },
+        {
+          "id": "ch3_005",
+          "category": "medium",
+          "question": "ขั้นตอนแรกของวัฏจักรคำสั่งคือข้อใด?",
+          "options": ["Fetch", "Execute", "Decode", "Store"],
+          "answer": 1
+        },
+        {
+          "id": "ch3_006",
+          "category": "medium",
+          "question": "ขั้นตอนที่สองของวัฏจักรคำสั่งคือข้อใด?",
+          "options": ["Fetch", "Execute", "Decode", "Store"],
+          "answer": 2
+        },
+        {
+          "id": "ch3_007",
+          "category": "medium",
+          "question": "IAC ย่อมาจากข้อใด?",
+          "options": ["Instruction Address Calculation", "Instruction Arithmetic Calculation", "Internal Address Counter", "Instruction Access Control"],
+          "answer": 1
+        },
+        {
+          "id": "ch3_008",
+          "category": "medium",
+          "question": "IF ในวัฏจักรคำสั่งย่อมาจากข้อใด?",
+          "options": ["Instruction Fetch", "Instruction Format", "Internal Function", "Instruction File"],
+          "answer": 1
+        },
+        {
+          "id": "ch3_009",
+          "category": "medium",
+          "question": "IOD ในวัฏจักรคำสั่งย่อมาจากข้อใด?",
+          "options": ["Instruction Operation Decoding", "Instruction Output Device", "Internal Operation Data", "Instruction Order Definition"],
+          "answer": 1
+        },
+        {
+          "id": "ch3_010",
+          "category": "medium",
+          "question": "OAC ในวัฏจักรคำสั่งย่อมาจากข้อใด?",
+          "options": ["Operand Address Calculation", "Operand Arithmetic Calculation", "Output Address Counter", "Operand Access Control"],
+          "answer": 1
+        },
+        {
+          "id": "ch3_011",
+          "category": "medium",
+          "question": "OF ในวัฏจักรคำสั่งย่อมาจากข้อใด?",
+          "options": ["Operand Fetch", "Operand Format", "Output Function", "Operand File"],
+          "answer": 1
+        },
+        {
+          "id": "ch3_012",
+          "category": "medium",
+          "question": "DO ในวัฏจักรคำสั่งย่อมาจากข้อใด?",
+          "options": ["Data Operation", "Data Output", "Device Operation", "Data Order"],
+          "answer": 1
+        },
+        {
+          "id": "ch3_013",
+          "category": "medium",
+          "question": "OS ในวัฏจักรคำสั่งย่อมาจากข้อใด?",
+          "options": ["Operand Store", "Output Store", "Operation System", "Operand Status"],
+          "answer": 1
+        },
+        {
+          "id": "ch3_014",
+          "category": "hard",
+          "question": "คำสั่งแบบ 4-Address Instruction มีกี่ที่อยู่?",
+          "options": ["1 ที่อยู่", "2 ที่อยู่", "3 ที่อยู่", "4 ที่อยู่"],
+          "answer": 4
+        },
+        {
+          "id": "ch3_015",
+          "category": "hard",
+          "question": "คำสั่งแบบ 3-Address Instruction มีกี่ที่อยู่?",
+          "options": ["1 ที่อยู่", "2 ที่อยู่", "3 ที่อยู่", "4 ที่อยู่"],
+          "answer": 3
+        },
+        {
+          "id": "ch3_016",
+          "category": "hard",
+          "question": "คำสั่งแบบ 2-Address Instruction มีกี่ที่อยู่?",
+          "options": ["1 ที่อยู่", "2 ที่อยู่", "3 ที่อยู่", "4 ที่อยู่"],
+          "answer": 2
+        },
+        {
+          "id": "ch3_017",
+          "category": "hard",
+          "question": "คำสั่งแบบ 1-Address Instruction มีกี่ที่อยู่?",
+          "options": ["1 ที่อยู่", "2 ที่อยู่", "3 ที่อยู่", "4 ที่อยู่"],
+          "answer": 1
+        },
+        {
+          "id": "ch3_018",
+          "category": "hard",
+          "question": "Immediate Addressing Mode มีลักษณะอย่างไร?",
+          "options": ["ค่าคงที่อยู่ในคำสั่ง", "ค่าอยู่ในรีจิสเตอร์", "ค่าอยู่ในหน่วยความจำ", "ค่าอยู่ในแคช"],
+          "answer": 1
+        },
+        {
+          "id": "ch3_019",
+          "category": "hard",
+          "question": "Register Addressing Mode มีลักษณะอย่างไร?",
+          "options": ["ค่าคงที่อยู่ในคำสั่ง", "ค่าอยู่ในรีจิสเตอร์", "ค่าอยู่ในหน่วยความจำ", "ค่าอยู่ในแคช"],
+          "answer": 2
+        },
+        {
+          "id": "ch3_020",
+          "category": "hard",
+          "question": "Direct Addressing Mode มีลักษณะอย่างไร?",
+          "options": ["ค่าคงที่อยู่ในคำสั่ง", "ค่าอยู่ในรีจิสเตอร์", "ที่อยู่ของข้อมูลอยู่ในคำสั่ง", "ค่าอยู่ในแคช"],
+          "answer": 3
+        },
+        {
+          "id": "ch3_021",
+          "category": "hard",
+          "question": "Register Indirect Addressing Mode มีลักษณะอย่างไร?",
+          "options": ["ค่าคงที่อยู่ในคำสั่ง", "รีจิสเตอร์เก็บที่อยู่ของข้อมูล", "ที่อยู่ของข้อมูลอยู่ในคำสั่ง", "ค่าอยู่ในแคช"],
+          "answer": 2
+        },
+        {
+          "id": "ch3_022",
+          "category": "hard",
+          "question": "Indexed Addressing Mode มีลักษณะอย่างไร?",
+          "options": ["ค่าคงที่อยู่ในคำสั่ง", "รีจิสเตอร์เก็บที่อยู่ของข้อมูล", "ที่อยู่ = ฐาน + ดัชนี", "ค่าอยู่ในแคช"],
+          "answer": 3
+        },
+        {
+          "id": "ch3_023",
+          "category": "hard",
+          "question": "Relative Addressing Mode มีลักษณะอย่างไร?",
+          "options": ["ค่าคงที่อยู่ในคำสั่ง", "รีจิสเตอร์เก็บที่อยู่ของข้อมูล", "ที่อยู่ = PC + Offset", "ค่าอยู่ในแคช"],
+          "answer": 3
+        },
+        {
+          "id": "ch3_024",
+          "category": "hard",
+          "question": "Stack Addressing Mode มีลักษณะอย่างไร?",
+          "options": ["ค่าคงที่อยู่ในคำสั่ง", "รีจิสเตอร์เก็บที่อยู่ของข้อมูล", "ที่อยู่ = ฐาน + ดัชนี", "ข้อมูลอยู่บนสแตก"],
+          "answer": 4
+        },
+        {
+          "id": "ch3_025",
+          "category": "hard",
+          "question": "Unconditional Branch มีลักษณะอย่างไร?",
+          "options": ["กระโดดไปยังคำสั่งอื่นเสมอ", "กระโดดเมื่อเงื่อนไขเป็นจริง", "กระโดดเมื่อเงื่อนไขเป็นเท็จ", "ไม่กระโดด"],
+          "answer": 1
+        },
+        {
+          "id": "ch3_026",
+          "category": "hard",
+          "question": "Conditional Branch มีลักษณะอย่างไร?",
+          "options": ["กระโดดไปยังคำสั่งอื่นเสมอ", "กระโดดเมื่อเงื่อนไขเป็นจริง", "กระโดดเมื่อเงื่อนไขเป็นเท็จ", "ไม่กระโดด"],
+          "answer": 2
+        },
+        {
+          "id": "ch3_027",
+          "category": "hard",
+          "question": "Skip คำสั่งมีลักษณะอย่างไร?",
+          "options": ["กระโดดไปยังคำสั่งอื่นเสมอ", "ข้ามคำสั่งถัดไปเมื่อเงื่อนไขเป็นจริง", "กระโดดเมื่อเงื่อนไขเป็นเท็จ", "ไม่กระโดด"],
+          "answer": 2
+        },
+        {
+          "id": "ch3_028",
+          "category": "hard",
+          "question": "Procedure Call มีลักษณะอย่างไร?",
+          "options": ["เรียกใช้โปรแกรมย่อยและกลับมา", "เรียกใช้โปรแกรมย่อยโดยไม่กลับ", "ข้ามโปรแกรมย่อย", "ลบโปรแกรมย่อย"],
+          "answer": 1
+        },
+        {
+          "id": "ch3_029",
+          "category": "hard",
+          "question": "Subroutine Call มีลักษณะอย่างไร?",
+          "options": ["เรียกใช้โปรแกรมย่อยและกลับมา", "เรียกใช้โปรแกรมย่อยโดยไม่กลับ", "ข้ามโปรแกรมย่อย", "ลบโปรแกรมย่อย"],
+          "answer": 1
+        },
+        {
+          "id": "ch3_030",
+          "category": "hard",
+          "question": "คำสั่งควบคุมอุปกรณ์ Input/Output มีหน้าที่อะไร?",
+          "options": ["ควบคุมการรับ-ส่งข้อมูล", "ควบคุมความเร็ว CPU", "ควบคุมหน่วยความจำ", "ควบคุดแฟนระบายความร้อน"],
+          "answer": 1
+        },
+        {
+          "id": "ch3_031",
+          "category": "bonus",
+          "question": "Data Transfer Instruction มีหน้าที่อะไร?",
+          "options": ["ย้ายข้อมูลระหว่างหน่วย", "คำนวณทางคณิตศาสตร์", "ตรรกะเปรียบเทียบ", "ควบคุมระบบ"],
+          "answer": 1
+        },
+        {
+          "id": "ch3_032",
+          "category": "bonus",
+          "question": "Arithmetic Instruction มีหน้าที่อะไร?",
+          "options": ["ย้ายข้อมูลระหว่างหน่วย", "คำนวณทางคณิตศาสตร์", "ตรรกะเปรียบเทียบ", "ควบคุมระบบ"],
+          "answer": 2
+        },
+        {
+          "id": "ch3_033",
+          "category": "bonus",
+          "question": "Logical Instruction มีหน้าที่อะไร?",
+          "options": ["ย้ายข้อมูลระหว่างหน่วย", "คำนวณทางคณิตศาสตร์", "ตรรกะเปรียบเทียบ", "ควบคุมระบบ"],
+          "answer": 3
+        },
+        {
+          "id": "ch3_034",
+          "category": "bonus",
+          "question": "System Control Instruction มีหน้าที่อะไร?",
+          "options": ["ย้ายข้อมูลระหว่างหน่วย", "คำนวณทางคณิตศาสตร์", "ตรรกะเปรียบเทียบ", "ควบคุมระบบ"],
+          "answer": 4
+        },
+        {
+          "id": "ch3_035",
+          "category": "bonus",
+          "question": "Input/Output Instruction มีหน้าที่อะไร?",
+          "options": ["ย้ายข้อมูลระหว่างหน่วย", "คำนวณทางคณิตศาสตร์", "ตรรกะเปรียบเทียบ", "รับ-ส่งข้อมูลกับอุปกรณ์"],
+          "answer": 4
+        },
+        {
+          "id": "ch3_036",
+          "category": "bonus",
+          "question": "Conversion Instruction มีหน้าที่อะไร?",
+          "options": ["ย้ายข้อมูลระหว่างหน่วย", "แปลงข้อมูล", "ตรรกะเปรียบเทียบ", "ควบคุมระบบ"],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "chapter": 4,
+      "title": "บทที่ 4: ไมโครโปรเซสเซอร์และการประมวลผล",
+      "questions": [
+        {
+          "id": "ch4_001",
+          "category": "easy",
+          "question": "CISC ย่อมาจากข้อใด?",
+          "options": ["Complex Instruction Set Computer", "Computer Integrated System Circuit", "Central Instruction Set Control", "Complex Integrated System Computer"],
+          "answer": 1
+        },
+        {
+          "id": "ch4_002",
+          "category": "easy",
+          "question": "RISC ย่อมาจากข้อใด?",
+          "options": ["Reduced Instruction Set Computer", "Rapid Integrated System Circuit", "Random Instruction Set Control", "Reduced Integrated System Computer"],
+          "answer": 1
+        },
+        {
+          "id": "ch4_003",
+          "category": "medium",
+          "question": "สถาปัตยกรรม CISC มีลักษณะอย่างไร?",
+          "options": ["ชุดคำสั่งขนาดเล็ก", "ชุดคำสั่งขนาดใหญ่และซับซ้อน", "ไม่มีชุดคำสั่ง", "ใช้คำสั่งเดียว"],
+          "answer": 2
+        },
+        {
+          "id": "ch4_004",
+          "category": "medium",
+          "question": "สถาปัตยกรรม RISC มีลักษณะอย่างไร?",
+          "options": ["ชุดคำสั่งขนาดเล็กและเรียบง่าย", "ชุดคำสั่งขนาดใหญ่และซับซ้อน", "ไม่มีชุดคำสั่ง", "ใช้คำสั่งเดียว"],
+          "answer": 1
+        },
+        {
+          "id": "ch4_005",
+          "category": "medium",
+          "question": "ไมโครโปรเซสเซอร์สมัยใหม่ส่วนใหญ่ใช้สถาปัตยกรรมแบบใด?",
+          "options": ["CISC", "RISC", "VLIW", "EPIC"],
+          "answer": 2
+        },
+        {
+          "id": "ch4_006",
+          "category": "medium",
+          "question": "Register ใน CPU มีหน้าที่อะไร?",
+          "options": ["จัดเก็บข้อมูลชั่วคราว", "ประมวลผลข้อมูล", "ควบคุมระบบ", "แสดงผลลัพธ์"],
+          "answer": 1
+        },
+        {
+          "id": "ch4_007",
+          "category": "medium",
+          "question": "General Purpose Register มีหน้าที่อะไร?",
+          "options": ["ใช้งานทั่วไป", "ใช้เฉพาะทาง", "เก็บที่อยู่", "เก็บสถานะ"],
+          "answer": 1
+        },
+        {
+          "id": "ch4_008",
+          "category": "medium",
+          "question": "Program Counter (PC) มีหน้าที่อะไร?",
+          "options": ["นับจำนวนคำสั่ง", "เก็บที่อยู่ของคำสั่งถัดไป", "เก็บข้อมูล", "เก็บสถานะ"],
+          "answer": 2
+        },
+        {
+          "id": "ch4_009",
+          "category": "medium",
+          "question": "Instruction Register (IR) มีหน้าที่อะไร?",
+          "options": ["นับจำนวนคำสั่ง", "เก็บคำสั่งที่กำลังประมวลผล", "เก็บข้อมูล", "เก็บสถานะ"],
+          "answer": 2
+        },
+        {
+          "id": "ch4_010",
+          "category": "medium",
+          "question": "Memory Address Register (MAR) มีหน้าที่อะไร?",
+          "options": ["นับจำนวนคำสั่ง", "เก็บที่อยู่ของหน่วยความจำ", "เก็บข้อมูล", "เก็บสถานะ"],
+          "answer": 2
+        },
+        {
+          "id": "ch4_011",
+          "category": "medium",
+          "question": "Memory Buffer Register (MBR) มีหน้าที่อะไร?",
+          "options": ["นับจำนวนคำสั่ง", "เก็บข้อมูลที่รับ-ส่งกับหน่วยความจำ", "เก็บข้อมูล", "เก็บสถานะ"],
+          "answer": 2
+        },
+        {
+          "id": "ch4_012",
+          "category": "medium",
+          "question": "Program Status Word (PSW) มีหน้าที่อะไร?",
+          "options": ["นับจำนวนคำสั่ง", "เก็บสถานะของ CPU", "เก็บข้อมูล", "เก็บที่อยู่"],
+          "answer": 2
+        },
+        {
+          "id": "ch4_013",
+          "category": "hard",
+          "question": "Interrupt Cycle มีหน้าที่อะไร?",
+          "options": ["รับสัญญาณจากอุปกรณ์ภายนอก", "ประมวลผลข้อมูล", "จัดเก็บข้อมูล", "แสดงผลลัพธ์"],
+          "answer": 1
+        },
+        {
+          "id": "ch4_014",
+          "category": "hard",
+          "question": "Interrupt มีกี่ประเภทหลัก?",
+          "options": ["1 ประเภท", "2 ประเภท", "3 ประเภท", "4 ประเภท"],
+          "answer": 2
+        },
+        {
+          "id": "ch4_015",
+          "category": "hard",
+          "question": "Nonmaskable Interrupt (NMI) มีลักษณะอย่างไร?",
+          "options": ["ไม่สามารถปิดกั้นได้", "สามารถปิดกั้นได้", "เกิดจากซอฟต์แวร์", "ไม่สำคัญ"],
+          "answer": 1
+        },
+        {
+          "id": "ch4_016",
+          "category": "hard",
+          "question": "Maskable Interrupt (MI) มีลักษณะอย่างไร?",
+          "options": ["ไม่สามารถปิดกั้นได้", "สามารถปิดกั้นได้", "เกิดจากซอฟต์แวร์", "ไม่สำคัญ"],
+          "answer": 2
+        },
+        {
+          "id": "ch4_017",
+          "category": "hard",
+          "question": "Hardware Interrupt เกิดจากข้อใด?",
+          "options": ["ซอฟต์แวร์", "อุปกรณ์ฮาร์ดแวร์", "ผู้ใช้", "ระบบปฏิบัติการ"],
+          "answer": 2
+        },
+        {
+          "id": "ch4_018",
+          "category": "hard",
+          "question": "Software Interrupt เกิดจากข้อใด?",
+          "options": ["ซอฟต์แวร์", "อุปกรณ์ฮาร์ดแวร์", "ผู้ใช้", "ระบบปฏิบัติการ"],
+          "answer": 1
+        },
+        {
+          "id": "ch4_019",
+          "category": "hard",
+          "question": "Vectored Interrupt มีลักษณะอย่างไร?",
+          "options": ["มีตัวชี้ไปยัง Interrupt Service Routine", "ไม่มีตัวชี้", "ใช้สแตก", "ใช้คิว"],
+          "answer": 1
+        },
+        {
+          "id": "ch4_020",
+          "category": "hard",
+          "question": "Non-Vectored Interrupt มีลักษณะอย่างไร?",
+          "options": ["มีตัวชี้ไปยัง Interrupt Service Routine", "ไม่มีตัวชี้ ใช้ Address เดียวกัน", "ใช้สแตก", "ใช้คิว"],
+          "answer": 2
+        },
+        {
+          "id": "ch4_021",
+          "category": "hard",
+          "question": "Stack Pointer (SP) มีหน้าที่อะไร?",
+          "options": ["ชี้ไปยังสแตก", "นับจำนวนคำสั่ง", "เก็บข้อมูล", "เก็บสถานะ"],
+          "answer": 1
+        },
+        {
+          "id": "ch4_022",
+          "category": "hard",
+          "question": "Condition Codes / Flags Register มีหน้าที่อะไร?",
+          "options": ["เก็บสถานะการประมวลผล", "นับจำนวนคำสั่ง", "เก็บข้อมูล", "เก็บที่อยู่"],
+          "answer": 1
+        },
+        {
+          "id": "ch4_023",
+          "category": "hard",
+          "question": "Index Register มีหน้าที่อะไร?",
+          "options": ["ใช้เป็นดัชนีในการคำนวณที่อยู่", "นับจำนวนคำสั่ง", "เก็บข้อมูล", "เก็บสถานะ"],
+          "answer": 1
+        },
+        {
+          "id": "ch4_024",
+          "category": "hard",
+          "question": "Segment Register มีหน้าที่อะไร?",
+          "options": ["เก็บที่อยู่ของเซกเมนต์", "นับจำนวนคำสั่ง", "เก็บข้อมูล", "เก็บสถานะ"],
+          "answer": 1
+        },
+        {
+          "id": "ch4_025",
+          "category": "bonus",
+          "question": "CISC เหมาะกับการใช้งานแบบใด?",
+          "options": ["งานทั่วไป", "งานเฉพาะทาง", "งานกราฟิก", "งานเครือข่าย"],
+          "answer": 1
+        },
+        {
+          "id": "ch4_026",
+          "category": "bonus",
+          "question": "RISC เหมาะกับการใช้งานแบบใด?",
+          "options": ["งานทั่วไป", "งานเฉพาะทาง เช่น มือถือ", "งานกราฟิก", "งานเครือข่าย"],
+          "answer": 2
+        },
+        {
+          "id": "ch4_027",
+          "category": "bonus",
+          "question": "Interrupt Cycle ทำงานเมื่อใด?",
+          "options": ["เมื่อมี Interrupt Request", "เมื่อ CPU ว่าง", "เมื่อหน่วยความจำเต็ม", "เมื่ออุปกรณ์เสีย"],
+          "answer": 1
+        },
+        {
+          "id": "ch4_028",
+          "category": "bonus",
+          "question": "Data Flow (Fetch Diagram) ใช้แสดงอะไร?",
+          "options": ["การไหลของข้อมูลในขั้นตอน Fetch", "การไหลของข้อมูลในขั้นตอน Execute", "การไหลของข้อมูลทั้งหมด", "การไหลของข้อมูลในหน่วยความจำ"],
+          "answer": 1
+        },
+        {
+          "id": "ch4_029",
+          "category": "bonus",
+          "question": "Data Flow (Indirect Diagram) ใช้แสดงอะไร?",
+          "options": ["การไหลของข้อมูลในขั้นตอน Fetch", "การไหลของข้อมูลในขั้นตอน Indirect", "การไหลของข้อมูลทั้งหมด", "การไหลของข้อมูลในหน่วยความจำ"],
+          "answer": 2
+        },
+        {
+          "id": "ch4_030",
+          "category": "bonus",
+          "question": "Instruction Cycle with Indirect มีกี่ขั้นตอน?",
+          "options": ["2 ขั้นตอน", "3 ขั้นตอน", "4 ขั้นตอน", "5 ขั้นตอน"],
+          "answer": 3
+        }
+      ]
+    },
+    {
+      "chapter": 5,
+      "title": "บทที่ 5: ไมโครโปรเซสเซอร์และการเชื่อมต่อระบบบัส",
+      "questions": [
+        {
+          "id": "ch5_001",
+          "category": "easy",
+          "question": "Bus System มีกี่ประเภทหลัก?",
+          "options": ["2 ประเภท", "3 ประเภท", "4 ประเภท", "5 ประเภท"],
+          "answer": 2
+        },
+        {
+          "id": "ch5_002",
+          "category": "easy",
+          "question": "Address Bus มีหน้าที่อะไร?",
+          "options": ["ส่งที่อยู่ข้อมูล", "ส่งข้อมูล", "ส่งสัญญาณควบคุม", "ส่งพลังงาน"],
+          "answer": 1
+        },
+        {
+          "id": "ch5_003",
+          "category": "easy",
+          "question": "Data Bus มีหน้าที่อะไร?",
+          "options": ["ส่งที่อยู่ข้อมูล", "ส่งข้อมูล", "ส่งสัญญาณควบคุม", "ส่งพลังงาน"],
+          "answer": 2
+        },
+        {
+          "id": "ch5_004",
+          "category": "easy",
+          "question": "Control Bus มีหน้าที่อะไร?",
+          "options": ["ส่งที่อยู่ข้อมูล", "ส่งข้อมูล", "ส่งสัญญาณควบคุม", "ส่งพลังงาน"],
+          "answer": 3
+        },
+        {
+          "id": "ch5_005",
+          "category": "medium",
+          "question": "CPU Bus มีสัญญาณกี่ประเภทหลัก?",
+          "options": ["2 ประเภท", "3 ประเภท", "4 ประเภท", "5 ประเภท"],
+          "answer": 3
+        },
+        {
+          "id": "ch5_006",
+          "category": "medium",
+          "question": "Memory Bus มีหน้าที่หลักอะไร?",
+          "options": ["เชื่อมต่อ CPU กับหน่วยความจำ", "เชื่อมต่อ CPU กับ I/O", "เชื่อมต่อ I/O กับหน่วยความจำ", "เชื่อมต่ออุปกรณ์ภายนอก"],
+          "answer": 1
+        },
+        {
+          "id": "ch5_007",
+          "category": "medium",
+          "question": "I/O Bus มีหน้าที่หลักอะไร?",
+          "options": ["เชื่อมต่อ CPU กับหน่วยความจำ", "เชื่อมต่อ CPU กับ I/O", "เชื่อมต่อ I/O กับหน่วยความจำ", "เชื่อมต่ออุปกรณ์ภายนอก"],
+          "answer": 2
+        },
+        {
+          "id": "ch5_008",
+          "category": "medium",
+          "question": "Port ในคอมพิวเตอร์มีหน้าที่อะไร?",
+          "options": ["เชื่อมต่ออุปกรณ์ภายนอก", "เพิ่มความเร็วประมวลผล", "เก็บข้อมูลชั่วคราว", "ควบคุมแฟนระบายความร้อน"],
+          "answer": 1
+        },
+        {
+          "id": "ch5_009",
+          "category": "medium",
+          "question": "DMA ย่อมาจากข้อใด?",
+          "options": ["Direct Memory Access", "Data Memory Address", "Device Memory Access", "Direct Module Access"],
+          "answer": 1
+        },
+        {
+          "id": "ch5_010",
+          "category": "medium",
+          "question": "DMA มีหน้าที่อะไร?",
+          "options": ["โอนข้อมูลโดยไม่ผ่าน CPU", "ประมวลผลข้อมูล", "จัดเก็บข้อมูล", "แสดงผลลัพธ์"],
+          "answer": 1
+        },
+        {
+          "id": "ch5_011",
+          "category": "hard",
+          "question": "Interrupt Controller มีหน้าที่อะไร?",
+          "options": ["ควบคุมการขัดจังหวะ", "ประมวลผลข้อมูล", "จัดเก็บข้อมูล", "แสดงผลลัพธ์"],
+          "answer": 1
+        },
+        {
+          "id": "ch5_012",
+          "category": "hard",
+          "question": "Priority Handling ใน Interrupt มีหน้าที่อะไร?",
+          "options": ["จัดลำดับความสำคัญของ Interrupt", "ประมวลผลข้อมูล", "จัดเก็บข้อมูล", "แสดงผลลัพธ์"],
+          "answer": 1
+        },
+        {
+          "id": "ch5_013",
+          "category": "hard",
+          "question": "Vectored Interrupt เปรียบเทียบกับการทำงานจริงได้อย่างไร?",
+          "options": ["มีตัวชี้ไปยัง Interrupt Service Routine เฉพาะ", "ไม่มีตัวชี้", "ใช้สแตก", "ใช้คิว"],
+          "answer": 1
+        },
+        {
+          "id": "ch5_014",
+          "category": "hard",
+          "question": "Non-Vectored Interrupt เปรียบเทียบกับการทำงานจริงได้อย่างไร?",
+          "options": ["มีตัวชี้ไปยัง Interrupt Service Routine เฉพาะ", "ไม่มีตัวชี้ ใช้ Address เดียวกัน", "ใช้สแตก", "ใช้คิว"],
+          "answer": 2
+        },
+        {
+          "id": "ch5_015",
+          "category": "hard",
+          "question": "Hardware Interrupt เกิดจากข้อใด?",
+          "options": ["ซอฟต์แวร์", "อุปกรณ์ฮาร์ดแวร์", "ผู้ใช้", "ระบบปฏิบัติการ"],
+          "answer": 2
+        },
+        {
+          "id": "ch5_016",
+          "category": "hard",
+          "question": "Software Interrupt เกิดจากข้อใด?",
+          "options": ["ซอฟต์แวร์", "อุปกรณ์ฮาร์ดแวร์", "ผู้ใช้", "ระบบปฏิบัติการ"],
+          "answer": 1
+        },
+        {
+          "id": "ch5_017",
+          "category": "hard",
+          "question": "System Bus มีหน้าที่อะไร?",
+          "options": ["เชื่อมต่อ CPU, Memory และ I/O", "เชื่อมต่อ CPU กับ Memory เท่านั้น", "เชื่อมต่อ I/O กับ Memory เท่านั้น", "เชื่อมต่ออุปกรณ์ภายนอก"],
+          "answer": 1
+        },
+        {
+          "id": "ch5_018",
+          "category": "hard",
+          "question": "I/O Module มีหน้าที่อะไร?",
+          "options": ["เชื่อมต่อ I/O Device กับ System Bus", "ประมวลผลข้อมูล", "จัดเก็บข้อมูล", "แสดงผลลัพธ์"],
+          "answer": 1
+        },
+        {
+          "id": "ch5_019",
+          "category": "hard",
+          "question": "I/O Techniques มีกี่ประเภทหลัก?",
+          "options": ["2 ประเภท", "3 ประเภท", "4 ประเภท", "5 ประเภท"],
+          "answer": 2
+        },
+        {
+          "id": "ch5_020",
+          "category": "hard",
+          "question": "Programmed I/O มีลักษณะอย่างไร?",
+          "options": ["CPU ควบคุมการโอนข้อมูล", "อุปกรณ์ควบคุมเอง", "ไม่ต้องใช้ CPU", "ใช้ DMA"],
+          "answer": 1
+        },
+        {
+          "id": "ch5_021",
+          "category": "hard",
+          "question": "Interrupt-Driven I/O มีลักษณะอย่างไร?",
+          "options": ["CPU ควบคุมการโอนข้อมูล", "อุปกรณ์แจ้งเตือน CPU", "ไม่ต้องใช้ CPU", "ใช้ DMA"],
+          "answer": 2
+        },
+        {
+          "id": "ch5_022",
+          "category": "hard",
+          "question": "DMA I/O มีลักษณะอย่างไร?",
+          "options": ["CPU ควบคุมการโอนข้อมูล", "อุปกรณ์แจ้งเตือน CPU", "ไม่ต้องใช้ CPU โดยตรง", "ใช้ Interrupt"],
+          "answer": 3
+        },
+        {
+          "id": "ch5_023",
+          "category": "bonus",
+          "question": "CPU Bus มีสัญญาณประเภท Instruction Fetch มีหน้าที่อะไร?",
+          "options": ["ดึงคำสั่งจากหน่วยความจำ", "ดึงข้อมูลจากหน่วยความจำ", "ส่งข้อมูลไปยังหน่วยความจำ", "ควบคุมอุปกรณ์"],
+          "answer": 1
+        },
+        {
+          "id": "ch5_024",
+          "category": "bonus",
+          "question": "CPU Bus มีสัญญาณประเภท Data Access มีหน้าที่อะไร?",
+          "options": ["ดึงคำสั่งจากหน่วยความจำ", "ดึงข้อมูลจากหน่วยความจำ", "ส่งข้อมูลไปยังหน่วยความจำ", "ควบคุมอุปกรณ์"],
+          "answer": 2
+        },
+        {
+          "id": "ch5_025",
+          "category": "bonus",
+          "question": "CPU Bus มีสัญญาณประเภท Device Control มีหน้าที่อะไร?",
+          "options": ["ดึงคำสั่งจากหน่วยความจำ", "ดึงข้อมูลจากหน่วยความจำ", "ส่งข้อมูลไปยังหน่วยความจำ", "ควบคุมอุปกรณ์"],
+          "answer": 4
+        },
+        {
+          "id": "ch5_026",
+          "category": "bonus",
+          "question": "CPU Bus มีสัญญาณประเภท Interrupt Handling มีหน้าที่อะไร?",
+          "options": ["ดึงคำสั่งจากหน่วยความจำ", "ดึงข้อมูลจากหน่วยความจำ", "ส่งข้อมูลไปยังหน่วยความจำ", "ตอบสนองการขัดจังหวะ"],
+          "answer": 4
+        },
+        {
+          "id": "ch5_027",
+          "category": "bonus",
+          "question": "Memory Bus มีสัญญาณหลักอะไรบ้าง?",
+          "options": ["Address และ Data", "Data และ Control", "Address, Data และ Control", "Power และ Ground"],
+          "answer": 3
+        },
+        {
+          "id": "ch5_028",
+          "category": "bonus",
+          "question": "DMA ทำงานเมื่อใด?",
+          "options": ["เมื่อ CPU ต้องการอ่านหรือบันทึกข้อมูลจำนวนมาก", "เมื่อ CPU ว่าง", "เมื่อหน่วยความจำเต็ม", "เมื่ออุปกรณ์เสีย"],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "chapter": 6,
+      "title": "บทที่ 6: หน่วยคำนวณทางคณิตศาสตร์และตรรกะ",
+      "questions": [
+        {
+          "id": "ch6_001",
+          "category": "easy",
+          "question": "ALU ย่อมาจากข้อใด?",
+          "options": ["Arithmetic and Logic Unit", "Address and Logic Unit", "Arithmetic and Load Unit", "Address and Load Unit"],
+          "answer": 1
+        },
+        {
+          "id": "ch6_002",
+          "category": "easy",
+          "question": "ALU มีหน้าที่หลักอะไร?",
+          "options": ["ประมวลผลทางคณิตศาสตร์และตรรกะ", "จัดเก็บข้อมูล", "ควบคุมระบบ", "แสดงผลลัพธ์"],
+          "answer": 1
+        },
+        {
+          "id": "ch6_003",
+          "category": "easy",
+          "question": "Control Unit มีหน้าที่อะไร?",
+          "options": ["สั่งการ ALU", "ประมวลผลข้อมูล", "จัดเก็บข้อมูล", "แสดงผลลัพธ์"],
+          "answer": 1
+        },
+        {
+          "id": "ch6_004",
+          "category": "medium",
+          "question": "Unsigned Representation ใช้เก็บข้อมูลแบบใด?",
+          "options": ["เลขจำนวนเต็มบวกเท่านั้น", "เลขจำนวนเต็มบวกและลบ", "เลขทศนิยม", "ตัวอักษร"],
+          "answer": 1
+        },
+        {
+          "id": "ch6_005",
+          "category": "medium",
+          "question": "Sign-Magnitude Representation ใช้บิตแรกเก็บอะไร?",
+          "options": ["ค่าของเลข", "เครื่องหมายบวก/ลบ", "ตำแหน่งทศนิยม", "หมายเลขฐาน"],
+          "answer": 2
+        },
+        {
+          "id": "ch6_006",
+          "category": "medium",
+          "question": "1's Complement ของเลขฐาน 2 คือ 0101 คือข้อใด?",
+          "options": ["1010", "1011", "1100", "1101"],
+          "answer": 1
+        },
+        {
+          "id": "ch6_007",
+          "category": "medium",
+          "question": "2's Complement ของเลขฐาน 2 คือ 0101 คือข้อใด?",
+          "options": ["1010", "1011", "1100", "1101"],
+          "answer": 2
+        },
+        {
+          "id": "ch6_008",
+          "category": "medium",
+          "question": "การบวกเลขฐาน 2: 101 + 011 ได้ผลลัพธ์ข้อใด?",
+          "options": ["1000", "1001", "1010", "1011"],
+          "answer": 1
+        },
+        {
+          "id": "ch6_009",
+          "category": "medium",
+          "question": "การลบเลขฐาน 2 ด้วย 2's Complement: 1000 - 0011 ได้ผลลัพธ์ข้อใด?",
+          "options": ["0101", "0110", "0111", "1001"],
+          "answer": 1
+        },
+        {
+          "id": "ch6_010",
+          "category": "medium",
+          "question": "Booth's Algorithm ใช้สำหรับอะไร?",
+          "options": ["การคูณเลขฐานสองแบบมีเครื่องหมาย", "การหารเลขฐานสอง", "การบวกเลขฐานสอง", "การลบเลขฐานสอง"],
+          "answer": 1
+        },
+        {
+          "id": "ch6_011",
+          "category": "hard",
+          "question": "IEEE 754 ใช้กี่บิตสำหรับ Single-precision?",
+          "options": ["16 บิต", "32 บิต", "64 บิต", "128 บิต"],
+          "answer": 2
+        },
+        {
+          "id": "ch6_012",
+          "category": "hard",
+          "question": "IEEE 754 ใช้กี่บิตสำหรับ Double-precision?",
+          "options": ["16 บิต", "32 บิต", "64 บิต", "128 บิต"],
+          "answer": 3
+        },
+        {
+          "id": "ch6_013",
+          "category": "hard",
+          "question": "Sign bit (S) ใน IEEE 754 มีหน้าที่อะไร?",
+          "options": ["บอกเครื่องหมายบวก/ลบ", "บอกค่าเลขชี้กำลัง", "บอกค่า Mantissa", "บอกหมายเลขฐาน"],
+          "answer": 1
+        },
+        {
+          "id": "ch6_014",
+          "category": "hard",
+          "question": "Exponent (E) ใน IEEE 754 มีหน้าที่อะไร?",
+          "options": ["บอกเครื่องหมายบวก/ลบ", "บอกค่าเลขชี้กำลัง", "บอกค่า Mantissa", "บอกหมายเลขฐาน"],
+          "answer": 2
+        },
+        {
+          "id": "ch6_015",
+          "category": "hard",
+          "question": "Mantissa (M) ใน IEEE 754 มีหน้าที่อะไร?",
+          "options": ["บอกเครื่องหมายบวก/ลบ", "บอกค่าเลขชี้กำลัง", "บอกค่าเลขจำนวนจริง", "บอกหมายเลขฐาน"],
+          "answer": 3
+        },
+        {
+          "id": "ch6_016",
+          "category": "hard",
+          "question": "Normal Form ของ Mantissa ใน IEEE 754 มีลักษณะอย่างไร?",
+          "options": ["มี 1 นำหน้า", "มี 0 นำหน้า", "ไม่มีตัวนำหน้า", "มีตัวอักษรนำหน้า"],
+          "answer": 1
+        },
+        {
+          "id": "ch6_017",
+          "category": "hard",
+          "question": "Restoring Division Algorithm ใช้สำหรับอะไร?",
+          "options": ["การหารเลขฐานสอง", "การคูณเลขฐานสอง", "การบวกเลขฐานสอง", "การลบเลขฐานสอง"],
+          "answer": 1
+        },
+        {
+          "id": "ch6_018",
+          "category": "hard",
+          "question": "Sign Extension ใช้สำหรับอะไร?",
+          "options": ["ขยายบิตเครื่องหมาย", "ลดบิตเครื่องหมาย", "เปลี่ยนฐานเลข", "แปลงข้อมูล"],
+          "answer": 1
+        },
+        {
+          "id": "ch6_019",
+          "category": "hard",
+          "question": "Binary Multiplication แบบ Unsigned ใช้วิธีใด?",
+          "options": ["การบวกและการเลื่อนบิต", "การลบและการเลื่อนบิต", "การคูณและการหาร", "การบวกและการหาร"],
+          "answer": 1
+        },
+        {
+          "id": "ch6_020",
+          "category": "hard",
+          "question": "Binary Division แบบ Integer Division ใช้วิธีใด?",
+          "options": ["การลบและการเลื่อนบิต", "การบวกและการเลื่อนบิต", "การคูณและการหาร", "การบวกและการหาร"],
+          "answer": 1
+        },
+        {
+          "id": "ch6_021",
+          "category": "bonus",
+          "question": "IEEE 754 Single-precision มี Exponent กี่บิต?",
+          "options": ["8 บิต", "11 บิต", "23 บิต", "52 บิต"],
+          "answer": 1
+        },
+        {
+          "id": "ch6_022",
+          "category": "bonus",
+          "question": "IEEE 754 Double-precision มี Exponent กี่บิต?",
+          "options": ["8 บิต", "11 บิต", "23 บิต", "52 บิต"],
+          "answer": 2
+        },
+        {
+          "id": "ch6_023",
+          "category": "bonus",
+          "question": "IEEE 754 Single-precision มี Mantissa กี่บิต?",
+          "options": ["8 บิต", "11 บิต", "23 บิต", "52 บิต"],
+          "answer": 3
+        },
+        {
+          "id": "ch6_024",
+          "category": "bonus",
+          "question": "IEEE 754 Double-precision มี Mantissa กี่บิต?",
+          "options": ["8 บิต", "11 บิต", "23 บิต", "52 บิต"],
+          "answer": 4
+        },
+        {
+          "id": "ch6_025",
+          "category": "bonus",
+          "question": "Booth's Algorithm ใช้กี่บิตในการคูณเลขฐานสองแบบมีเครื่องหมาย?",
+          "options": ["เท่ากับจำนวนบิตของตัวคูณ", "เท่ากับจำนวนบิตของตัวถูกคูณ", "เท่ากับผลรวมของตัวคูณและตัวถูกคูณ", "ครึ่งหนึ่งของตัวคูณ"],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "chapter": 7,
+      "title": "บทที่ 7: หน่วยความจำ Memory",
+      "questions": [
+        {
+          "id": "ch7_001",
+          "category": "easy",
+          "question": "หน่วยความจำ (Memory Unit) มีหน้าที่หลักอะไร?",
+          "options": ["จัดเก็บข้อมูลและคำสั่ง", "ประมวลผลข้อมูล", "ควบคุมระบบ", "แสดงผลลัพธ์"],
+          "answer": 1
+        },
+        {
+          "id": "ch7_002",
+          "category": "easy",
+          "question": "RAM ย่อมาจากข้อใด?",
+          "options": ["Random Access Memory", "Read Access Memory", "Rapid Access Memory", "Random Action Memory"],
+          "answer": 1
+        },
+        {
+          "id": "ch7_003",
+          "category": "easy",
+          "question": "ROM ย่อมาจากข้อใด?",
+          "options": ["Read Only Memory", "Random Only Memory", "Rapid Only Memory", "Random Output Memory"],
+          "answer": 1
+        },
+        {
+          "id": "ch7_004",
+          "category": "easy",
+          "question": "SRAM และ DRAM เป็นหน่วยความจำประเภทใด?",
+          "options": ["Non-volatile", "Volatile", "Optical", "Magnetic"],
+          "answer": 2
+        },
+        {
+          "id": "ch7_005",
+          "category": "medium",
+          "question": "SRAM กับ DRAM ต่างกันอย่างไร?",
+          "options": ["SRAM เร็วกว่าแต่แพงกว่า", "DRAM เร็วกว่าแต่แพงกว่า", "SRAM ช้ากว่าแต่ถูกกว่า", "DRAM ช้ากว่าแต่ถูกกว่า"],
+          "answer": 1
+        },
+        {
+          "id": "ch7_006",
+          "category": "medium",
+          "question": "DDR SDRAM เป็นหน่วยความจำประเภทใด?",
+          "options": ["Static RAM", "Dynamic RAM", "Optical Memory", "Magnetic Memory"],
+          "answer": 2
+        },
+        {
+          "id": "ch7_007",
+          "category": "medium",
+          "question": "DIMM ย่อมาจากข้อใด?",
+          "options": ["Dual In-line Memory Module", "Digital In-line Memory Module", "Dual Input Memory Module", "Digital Input Memory Module"],
+          "answer": 1
+        },
+        {
+          "id": "ch7_008",
+          "category": "medium",
+          "question": "NVDIMM เป็นหน่วยความจำประเภทใด?",
+          "options": ["Non-volatile DIMM", "Normal DIMM", "New DIMM", "Network DIMM"],
+          "answer": 1
+        },
+        {
+          "id": "ch7_009",
+          "category": "medium",
+          "question": "Cache Hit หมายถึงข้อใด?",
+          "options": ["พบข้อมูลในแคช", "ไม่พบข้อมูลในแคช", "ข้อมูลเสียหาย", "ข้อมูลถูกลบ"],
+          "answer": 1
+        },
+        {
+          "id": "ch7_010",
+          "category": "medium",
+          "question": "Cache Miss หมายถึงข้อใด?",
+          "options": ["พบข้อมูลในแคช", "ไม่พบข้อมูลในแคช", "ข้อมูลเสียหาย", "ข้อมูลถูกลบ"],
+          "answer": 2
+        },
+        {
+          "id": "ch7_011",
+          "category": "medium",
+          "question": "Direct Mapping ในแคชมีลักษณะอย่างไร?",
+          "options": ["ทุกบล็อกสามารถวางได้ทุกตำแหน่ง", "บล็อกวางได้เฉพาะตำแหน่งที่กำหนด", "บล็อกวางเป็นกลุ่ม", "บล็อกวางแบบสุ่ม"],
+          "answer": 2
+        },
+        {
+          "id": "ch7_012",
+          "category": "medium",
+          "question": "Fully Associative Mapping ในแคชมีลักษณะอย่างไร?",
+          "options": ["ทุกบล็อกสามารถวางได้ทุกตำแหน่ง", "บล็อกวางได้เฉพาะตำแหน่งที่กำหนด", "บล็อกวางเป็นกลุ่ม", "บล็อกวางแบบสุ่ม"],
+          "answer": 1
+        },
+        {
+          "id": "ch7_013",
+          "category": "medium",
+          "question": "Set-Associative Mapping ในแคชมีลักษณะอย่างไร?",
+          "options": ["ทุกบล็อกสามารถวางได้ทุกตำแหน่ง", "บล็อกวางได้เฉพาะตำแหน่งที่กำหนด", "บล็อกวางเป็นกลุ่ม", "บล็อกวางแบบสุ่ม"],
+          "answer": 3
+        },
+        {
+          "id": "ch7_014",
+          "category": "hard",
+          "question": "LRU (Least Recently Used) ใช้สำหรับอะไร?",
+          "options": ["เลือกบล็อกที่จะแทนที่ในแคช", "เลือกบล็อกที่จะอ่าน", "เลือกบล็อกที่จะเขียน", "เลือกบล็อกที่จะลบ"],
+          "answer": 1
+        },
+        {
+          "id": "ch7_015",
+          "category": "hard",
+          "question": "FIFO (First-in First-out) ใช้สำหรับอะไร?",
+          "options": ["เลือกบล็อกที่จะแทนที่ในแคช", "เลือกบล็อกที่จะอ่าน", "เลือกบล็อกที่จะเขียน", "เลือกบล็อกที่จะลบ"],
+          "answer": 1
+        },
+        {
+          "id": "ch7_016",
+          "category": "hard",
+          "question": "LFU (Least Frequently Used) ใช้สำหรับอะไร?",
+          "options": ["เลือกบล็อกที่จะแทนที่ในแคช", "เลือกบล็อกที่จะอ่าน", "เลือกบล็อกที่จะเขียน", "เลือกบล็อกที่จะลบ"],
+          "answer": 1
+        },
+        {
+          "id": "ch7_017",
+          "category": "hard",
+          "question": "Write-through ในแคชมีลักษณะอย่างไร?",
+          "options": ["เขียนไปแคชและหน่วยความจำหลังพร้อมกัน", "เขียนเฉพาะแคชก่อน", "เขียนเฉพาะหน่วยความจำหลัง", "เขียนแบบสุ่ม"],
+          "answer": 1
+        },
+        {
+          "id": "ch7_018",
+          "category": "hard",
+          "question": "Write-back ในแคชมีลักษณะอย่างไร?",
+          "options": ["เขียนไปแคชและหน่วยความจำหลังพร้อมกัน", "เขียนเฉพาะแคชก่อน แล้วค่อยเขียนหน่วยความจำหลังทีหลัง", "เขียนเฉพาะหน่วยความจำหลัง", "เขียนแบบสุ่ม"],
+          "answer": 2
+        },
+        {
+          "id": "ch7_019",
+          "category": "hard",
+          "question": "Virtual Memory มีหน้าที่อะไร?",
+          "options": ["เพิ่มความจุหน่วยความจำ", "เพิ่มความเร็วประมวลผล", "ลดการใช้พลังงาน", "เพิ่มความปลอดภัย"],
+          "answer": 1
+        },
+        {
+          "id": "ch7_020",
+          "category": "hard",
+          "question": "Paging System ใช้สำหรับอะไร?",
+          "options": ["จัดการหน่วยความจำเสมือน", "จัดการไฟล์", "จัดการโปรเซส", "จัดการเครือข่าย"],
+          "answer": 1
+        },
+        {
+          "id": "ch7_021",
+          "category": "hard",
+          "question": "Page Fault เกิดเมื่อใด?",
+          "options": ["ไม่พบหน้าที่ต้องการในหน่วยความจำ", "พบหน้าที่ต้องการ", "หน่วยความจำเต็ม", "หน่วยความจำว่าง"],
+          "answer": 1
+        },
+        {
+          "id": "ch7_022",
+          "category": "hard",
+          "question": "DAT (Dynamic Address Translation) ใช้สำหรับอะไร?",
+          "options": ["แปลงที่อยู่เสมือนเป็นที่อยู่จริง", "แปลงที่อยู่จริงเป็นที่อยู่เสมือน", "เข้ารหัสที่อยู่", "ถอดรหัสที่อยู่"],
+          "answer": 1
+        },
+        {
+          "id": "ch7_023",
+          "category": "hard",
+          "question": "Page Replacement Algorithms มีกี่ประเภทหลัก?",
+          "options": ["2 ประเภท", "3 ประเภท", "4 ประเภท", "5 ประเภท"],
+          "answer": 3
+        },
+        {
+          "id": "ch7_024",
+          "category": "hard",
+          "question": "OPT (Optimal Page Replacement) มีลักษณะอย่างไร?",
+          "options": ["แทนที่หน้าที่ไม่ถูกใช้นานที่สุด", "แทนที่หน้าที่เข้ามาก่อน", "แทนที่หน้าที่ใช้น้อยที่สุด", "แทนที่หน้าแบบสุ่ม"],
+          "answer": 1
+        },
+        {
+          "id": "ch7_025",
+          "category": "bonus",
+          "question": "Sequential Access มีลักษณะอย่างไร?",
+          "options": ["เข้าถึงข้อมูลตามลำดับ", "เข้าถึงข้อมูลแบบสุ่ม", "เข้าถึงข้อมูลแบบกลุ่ม", "เข้าถึงข้อมูลแบบตรง"],
+          "answer": 1
+        },
+        {
+          "id": "ch7_026",
+          "category": "bonus",
+          "question": "Direct Access มีลักษณะอย่างไร?",
+          "options": ["เข้าถึงข้อมูลตามลำดับ", "เข้าถึงข้อมูลแบบสุ่ม", "เข้าถึงข้อมูลแบบกลุ่ม", "เข้าถึงข้อมูลแบบตรง"],
+          "answer": 4
+        },
+        {
+          "id": "ch7_027",
+          "category": "bonus",
+          "question": "Random Access มีลักษณะอย่างไร?",
+          "options": ["เข้าถึงข้อมูลตามลำดับ", "เข้าถึงข้อมูลแบบสุ่ม", "เข้าถึงข้อมูลแบบกลุ่ม", "เข้าถึงข้อมูลแบบตรง"],
+          "answer": 2
+        },
+        {
+          "id": "ch7_028",
+          "category": "bonus",
+          "question": "Associative Access มีลักษณะอย่างไร?",
+          "options": ["เข้าถึงข้อมูลตามลำดับ", "เข้าถึงข้อมูลแบบสุ่ม", "เข้าถึงข้อมูลตามเนื้อหา", "เข้าถึงข้อมูลแบบตรง"],
+          "answer": 3
+        },
+        {
+          "id": "ch7_029",
+          "category": "bonus",
+          "question": "Optical Memory ตัวอย่างเช่นข้อใด?",
+          "options": ["HDD", "SSD", "CD/DVD", "USB Flash Drive"],
+          "answer": 3
+        },
+        {
+          "id": "ch7_030",
+          "category": "bonus",
+          "question": "Magnetic Tape เป็นหน่วยความจำประเภทใด?",
+          "options": ["Primary Memory", "Secondary Memory", "Cache Memory", "Virtual Memory"],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "chapter": 8,
+      "title": "บทที่ 8: การทำงานแบบไปป์ลายน์",
+      "questions": [
+        {
+          "id": "ch8_001",
+          "category": "easy",
+          "question": "CPU แบบไม่ใช้ไปป์ไลน์ (Single-cycle) มีลักษณะอย่างไร?",
+          "options": ["ประมวลผลคำสั่งทีละคำสั่ง", "ประมวลผลหลายคำสั่งพร้อมกัน", "ไม่มีคำสั่ง", "ใช้คำสั่งเดียว"],
+          "answer": 1
+        },
+        {
+          "id": "ch8_002",
+          "category": "easy",
+          "question": "CPU แบบไปป์ไลน์ (Pipeline) มีลักษณะอย่างไร?",
+          "options": ["ประมวลผลคำสั่งทีละคำสั่ง", "ประมวลผลหลายคำสั่งพร้อมกัน", "ไม่มีคำสั่ง", "ใช้คำสั่งเดียว"],
+          "answer": 2
+        },
+        {
+          "id": "ch8_003",
+          "category": "medium",
+          "question": "MIPS Pipeline มีกี่ขั้นตอน?",
+          "options": ["3 ขั้นตอน", "4 ขั้นตอน", "5 ขั้นตอน", "6 ขั้นตอน"],
+          "answer": 3
+        },
+        {
+          "id": "ch8_004",
+          "category": "medium",
+          "question": "RISC Pipeline มีกี่ขั้นตอน?",
+          "options": ["3 ขั้นตอน", "4 ขั้นตอน", "5 ขั้นตอน", "6 ขั้นตอน"],
+          "answer": 3
+        },
+        {
+          "id": "ch8_005",
+          "category": "medium",
+          "question": "Linear Pipeline มีลักษณะอย่างไร?",
+          "options": ["ขั้นตอนเรียงต่อกันแบบเส้นตรง", "ขั้นตอนแบบกระจาย", "ขั้นตอนแบบวงกลม", "ขั้นตอนแบบสุ่ม"],
+          "answer": 1
+        },
+        {
+          "id": "ch8_006",
+          "category": "medium",
+          "question": "Non-linear Pipeline มีลักษณะอย่างไร?",
+          "options": ["ขั้นตอนเรียงต่อกันแบบเส้นตรง", "ขั้นตอนแบบกระจาย", "ขั้นตอนแบบวงกลม", "ขั้นตอนแบบสุ่ม"],
+          "answer": 2
+        },
+        {
+          "id": "ch8_007",
+          "category": "medium",
+          "question": "Pipeline Architecture มีองค์ประกอบหลักอะไร?",
+          "options": ["Stages และ Registers", "ALU และ Control Unit", "Cache และ Memory", "Input และ Output"],
+          "answer": 1
+        },
+        {
+          "id": "ch8_008",
+          "category": "medium",
+          "question": "Pipeline Optimization มีเป้าหมายอะไร?",
+          "options": ["เพิ่มประสิทธิภาพการทำงาน", "ลดราคา", "ลดขนาด", "เพิ่มความจุ"],
+          "answer": 1
+        },
+        {
+          "id": "ch8_009",
+          "category": "hard",
+          "question": "Data Hazard เกิดจากข้อใด?",
+          "options": ["ข้อมูลขัดแย้ง", "โครงสร้างขัดแย้ง", "ควบคุมขัดแย้ง", "ไม่มีขัดแย้ง"],
+          "answer": 1
+        },
+        {
+          "id": "ch8_010",
+          "category": "hard",
+          "question": "Structural Hazard เกิดจากข้อใด?",
+          "options": ["ข้อมูลขัดแย้ง", "โครงสร้างขัดแย้ง", "ควบคุมขัดแย้ง", "ไม่มีขัดแย้ง"],
+          "answer": 2
+        },
+        {
+          "id": "ch8_011",
+          "category": "hard",
+          "question": "Control Hazard เกิดจากข้อใด?",
+          "options": ["ข้อมูลขัดแย้ง", "โครงสร้างขัดแย้ง", "ควบคุมขัดแย้ง", "ไม่มีขัดแย้ง"],
+          "answer": 3
+        },
+        {
+          "id": "ch8_012",
+          "category": "hard",
+          "question": "Stalling หรือ Bubble ใช้แก้ปัญหาอะไร?",
+          "options": ["Pipeline Hazard", "Cache Miss", "Page Fault", "Interrupt"],
+          "answer": 1
+        },
+        {
+          "id": "ch8_013",
+          "category": "hard",
+          "question": "Forwarding หรือ Bypassing ใช้แก้ปัญหาอะไร?",
+          "options": ["Data Hazard", "Structural Hazard", "Control Hazard", "Cache Miss"],
+          "answer": 1
+        },
+        {
+          "id": "ch8_014",
+          "category": "hard",
+          "question": "Branch Prediction ใช้แก้ปัญหาอะไร?",
+          "options": ["Data Hazard", "Structural Hazard", "Control Hazard", "Cache Miss"],
+          "answer": 3
+        },
+        {
+          "id": "ch8_015",
+          "category": "hard",
+          "question": "Instruction Reordering ใช้แก้ปัญหาอะไร?",
+          "options": ["Data Hazard", "Structural Hazard", "Control Hazard", "Cache Miss"],
+          "answer": 1
+        },
+        {
+          "id": "ch8_016",
+          "category": "bonus",
+          "question": "Pipeline เพิ่มประสิทธิภาพได้อย่างไร?",
+          "options": ["เพิ่มจำนวนขั้นตอน", "ลดจำนวนขั้นตอน", "เพิ่มความเร็ว Clock", "ลดความเร็ว Clock"],
+          "answer": 1
+        },
+        {
+          "id": "ch8_017",
+          "category": "bonus",
+          "question": "Pipeline เทียบกับ Non-pipeline มีข้อดีอะไร?",
+          "options": ["เร็วกว่า", "ช้ากว่า", "เท่ากัน", "ไม่สามารถเปรียบเทียบ"],
+          "answer": 1
+        },
+        {
+          "id": "ch8_018",
+          "category": "bonus",
+          "question": "Pipeline มีข้อเสียอะไร?",
+          "options": ["ซับซ้อนกว่า", "ง่ายกว่า", "เร็วกว่า", "ไม่มีข้อเสีย"],
+          "answer": 1
+        }
+      ]
+    }
+  ]
+}
